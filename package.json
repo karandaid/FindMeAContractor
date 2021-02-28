@@ -1,0 +1,22 @@
+{
+  "name": "findmeacontractor",
+  "version": "1.0.0",
+  "description": "An App to find contractors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karandaid/FindMeAContractor.git"
+  },
+  "author": "Karandeep Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karandaid/FindMeAContractor/issues"
+  },
+  "homepage": "https://github.com/karandaid/FindMeAContractor#readme",
+  "devDependencies": {
+    "eslint": "^7.21.0"
+  }
+}
