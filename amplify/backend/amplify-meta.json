@@ -1,0 +1,37 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-findmeacontractor-dev-10736-authRole",
+      "UnauthRoleArn": "arn:aws:iam::915470643409:role/amplify-findmeacontractor-dev-10736-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::915470643409:role/amplify-findmeacontractor-dev-10736-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-findmeacontractor-dev-10736-deployment",
+      "UnauthRoleName": "amplify-findmeacontractor-dev-10736-unauthRole",
+      "StackName": "amplify-findmeacontractor-dev-10736",
+      "StackId": "arn:aws:cloudformation:eu-west-2:915470643409:stack/amplify-findmeacontractor-dev-10736/9ad753d0-7eb7-11eb-bc9b-06deb714bcea",
+      "AmplifyAppId": "d2ivyaed2n1ego"
+    }
+  },
+  "auth": {
+    "findmeacontractor7a750246": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-findmeacontractor-dev-10736-deployment/amplify-cfn-templates/auth/findmeacontractor7a750246-cloudformation-template.yml",
+        "logicalId": "authfindmeacontractor7a750246"
+      },
+      "lastPushTimeStamp": "2021-03-06T20:15:35.633Z",
+      "output": {
+        "UserPoolId": "eu-west-2_6LiEPVl6a",
+        "AppClientIDWeb": "7n7hitrp7bd2anc3mu2ijo1b87",
+        "AppClientID": "1jaa0cohb8ua8ied7imvlnct0s",
+        "IdentityPoolId": "eu-west-2:98dbacc8-54fd-4777-90fd-1c8c92d835d6",
+        "IdentityPoolName": "findmeacontractor7a750246_identitypool_7a750246__dev",
+        "UserPoolName": "findmeacontractor7a750246_userpool_7a750246"
+      },
+      "lastPushDirHash": "5vdQ50UoeYJHmv2I7WbbMBAPNfo="
+    }
+  }
+}
