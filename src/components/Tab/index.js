@@ -4,22 +4,21 @@ import {Platform, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export function Tab({containerStyle, onTabChange, active}) {
-  console.log({active});
   const [selected, setselected] = useState(active ? active - 1 : 0);
   const tabs = [
-    {name: 'search-outline', onPress: () => navigation.navigate('Home')},
-    {name: 'newspaper-outline', onPress: () => navigation.navigate('Projects')},
+    {name: 'search-outline', onPress: () => navigation.replace('Home')},
+    {name: 'newspaper-outline', onPress: () => navigation.replace('Projects')},
     {
       name: 'ios-add-circle-outline',
       onPress: () => navigation.navigate('Posts'),
     },
     {
       name: 'paper-plane-outline',
-      onPress: () => navigation.navigate('MyProjects'),
+      onPress: () => navigation.replace('MyProjects'),
     },
     {
       name: 'ios-person-circle-outline',
-      onPress: () => navigation.navigate('Profile'),
+      onPress: () => navigation.replace('Profile'),
     },
   ];
 
@@ -40,6 +39,7 @@ export function Tab({containerStyle, onTabChange, active}) {
       }}>
       {tabs.map((e, i) => (
         <TouchableOpacity
+          key={i + 't'}
           onPress={e.onPress}
           style={{
             flex: 1,
@@ -70,6 +70,7 @@ export function TextTabs({containerStyle, onTabChange, tabsContent}) {
       }}>
       {tabsContent.map((e, i) => (
         <TouchableOpacity
+          key={i}
           onPress={() => setselected(i)}
           style={{
             flex: 1,

@@ -11,7 +11,7 @@ Amplify.configure(config);
 const app = dva({
   history: createMemoryHistory(), //history object (reqd)
   onError(e, dispatch) {
-    console.log(e, dispatch); //global error handler
+    //global error handler
   },
 });
 

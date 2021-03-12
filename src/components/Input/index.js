@@ -2,7 +2,6 @@ import React from 'react';
 import {View, TextInput} from 'react-native';
 
 export function Input(props) {
-  console.log({props});
   return (
     <View
       style={{

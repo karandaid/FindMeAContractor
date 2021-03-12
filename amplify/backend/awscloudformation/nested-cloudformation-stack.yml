@@ -119,6 +119,40 @@
         }
       }
     },
+    "storageFindmeacontractor": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-findmeacontractor-dev-10736-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "Parameters": {
+          "bucketName": "findmeacontractor5f0bcc14d932483aabc269104b9550",
+          "authPolicyName": "s3_amplify_4c8f88d3",
+          "unauthPolicyName": "s3_amplify_4c8f88d3",
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "selectedGuestPermissions": "s3:GetObject,s3:ListBucket",
+          "selectedAuthenticatedPermissions": "s3:PutObject,s3:GetObject,s3:ListBucket",
+          "s3PermissionsAuthenticatedPublic": "s3:PutObject,s3:GetObject",
+          "s3PublicPolicy": "Public_policy_c251be06",
+          "s3PermissionsAuthenticatedUploads": "s3:PutObject",
+          "s3UploadsPolicy": "Uploads_policy_c251be06",
+          "s3PermissionsAuthenticatedProtected": "s3:PutObject,s3:GetObject",
+          "s3ProtectedPolicy": "Protected_policy_c251be06",
+          "s3PermissionsAuthenticatedPrivate": "s3:PutObject,s3:GetObject",
+          "s3PrivatePolicy": "Private_policy_c251be06",
+          "AuthenticatedAllowList": "ALLOW",
+          "s3ReadPolicy": "read_policy_c251be06",
+          "s3PermissionsGuestPublic": "DISALLOW",
+          "s3PermissionsGuestUploads": "DISALLOW",
+          "GuestAllowList": "DISALLOW",
+          "triggerFunction": "NONE",
+          "env": "dev"
+        }
+      }
+    },
     "UpdateRolesWithIDPFunction": {
       "DependsOn": [
         "AuthRole",

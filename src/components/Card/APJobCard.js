@@ -1,23 +1,42 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Jobs from '../../service/jobs';
+import User from '../../service/user';
+import {S3BUCKETURL} from '../../utils';
 
 export function APJobCard({...props}) {
+  const {item, index} = props.data;
+  const [job, setjob] = useState(undefined);
+  const [user, setuser] = useState(undefined);
   const data = {
-    title: 'Need a plumber',
-    status: 'Active',
+    title: item.description,
+    status: item.status,
     by: {
-      name: 'Raja Osama',
+      name: user?.name,
       avatar:
         'https://m.media-amazon.com/images/M/MV5BMjM2OTkyNTY3N15BMl5BanBnXkFtZTgwNzgzNDc2NjE@._V1_CR132,0,761,428_AL_UY268_CR82,0,477,268_AL_.jpg',
     },
   };
 
+  useEffect(() => {
+    if (!job) return;
+    User.getUsers(0, 1, 'created_at:desc', '_id:' + job.uid).then((e) =>
+      setuser(e.data.data[0]),
+    );
+  }, [job]);
+
+  useEffect(() => {
+    Jobs.getJobs(0, 1, 'created_at:desc', '_id:' + item.jid).then((e) =>
+      setjob(e.data.data[0]),
+    );
+  }, []);
+
   return (
     <TouchableOpacity {...props}>
       <View
         style={{
-          height: 105,
+          minheight: 160,
           backgroundColor: 'white',
           marginBottom: 10,
         }}>
@@ -31,6 +50,7 @@ export function APJobCard({...props}) {
             style={{
               fontFamily: 'Andale Mono',
               color: 'green',
+              textAlign: 'right',
             }}>
             {data.status}
           </Text>
@@ -39,7 +59,26 @@ export function APJobCard({...props}) {
               fontSize: 17,
               fontFamily: 'Andale Mono',
             }}>
+            {job?.title}
+          </Text>
+          <Text
+            style={{
+              fontSize: 15,
+              color: 'gray',
+              fontFamily: 'Andale Mono',
+            }}
+            numberOfLines={2}>
             {data.title}
+          </Text>
+
+          <Text
+            style={{
+              marginTop: 10,
+              fontFamily: 'Andale Mono',
+              color: 'red',
+            }}>
+            {(!job || job.status == 'completed' || job.status == 'closed') &&
+              'We Advice you to delete this bid as the job status either completed , closed or deleted '}
           </Text>
         </View>
         <View
@@ -58,7 +97,7 @@ export function APJobCard({...props}) {
               borderRadius: 20,
             }}
             source={{
-              uri: data.by.avatar,
+              uri: S3BUCKETURL + user.image,
             }}
           />
           <Text

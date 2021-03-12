@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Jobs from '../../service/jobs';
+import {FORMATE_DATE, S3BUCKETURL} from '../../utils';
 
 export function JobCard(props) {
+  const {item, index} = props.data;
+
   return (
     <TouchableOpacity {...props}>
       <View
         style={{
-          minHeight: 142,
+          minHeight: 182,
           paddingHorizontal: 12,
           paddingVertical: 12,
           borderWidth: 1,
@@ -18,27 +22,38 @@ export function JobCard(props) {
           style={{
             flex: 1,
           }}>
-          <Text
+          <View
             style={{
-              fontFamily: 'Andale Mono',
-              fontSize: 17,
+              flex: 1,
             }}>
-            Need a Plumber
-          </Text>
-          <Text
-            style={{
-              fontFamily: 'Andale Mono',
-              fontSize: 14,
-              color: '#6C6C6C',
-              paddingVertical: 2,
-              paddingRight: 3,
-            }}
-            numberOfLines={5}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
+            <Text
+              style={{
+                fontFamily: 'Andale Mono',
+                fontSize: 18,
+                textTransform: 'capitalize',
+              }}>
+              {item.title}
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'Andale Mono',
+                fontSize: 14,
+                color: '#6C6C6C',
+                paddingVertical: 2,
+                paddingRight: 3,
+              }}
+              numberOfLines={4}>
+              {item.description}
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'Andale Mono',
+                fontSize: 12,
+                color: 'green',
+              }}>
+              status :{item.status}
+            </Text>
+          </View>
           <View
             style={{
               flexDirection: 'row',
@@ -57,7 +72,7 @@ export function JobCard(props) {
                   marginLeft: 3,
                   fontFamily: 'Andale Mono',
                 }}>
-                2021-04-01
+                {FORMATE_DATE(item.created_at)}
               </Text>
             </View>
             <View
@@ -74,7 +89,9 @@ export function JobCard(props) {
 
                   fontFamily: 'Andale Mono',
                 }}>
-                20$ - 30$
+                {item.price[0]}
+                {item.price[2]} - {item.price[1]}
+                {item.price[2]}
               </Text>
             </View>
           </View>
@@ -82,9 +99,10 @@ export function JobCard(props) {
         <Image
           style={{
             width: 160,
+            marginLeft: 10,
             height: '100%',
           }}
-          source={require('../../assets/images/image.png')}
+          source={{uri: S3BUCKETURL + item.images[0]}}
         />
       </View>
     </TouchableOpacity>

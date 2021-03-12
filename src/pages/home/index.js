@@ -7,8 +7,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {APJobCard} from '../../components/Card/APJobCard';
 import {JobCard} from '../../components/Card/JobCard';
 import {BidsCard} from '../../components/Card/BidsCard';
+import {connect} from 'dva';
+import {authenticated} from '../../models/app';
 
-export default function Home() {
+export default connect(({}) => ({}), {authenticated})(function Home(props) {
   return (
     <View style={{flex: 1, backgroundColor: '#F6F6F8'}}>
       <Text style={{fontFamily: 'Andale Mono'}}>We are live baby</Text>
@@ -33,4 +35,4 @@ export default function Home() {
       <BidsCard></BidsCard>
     </View>
   );
-}
+});

@@ -8,8 +8,12 @@ import {APJobCard} from '../../components/Card/APJobCard';
 import {JobCard} from '../../components/Card/JobCard';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
+import {connect} from 'dva';
 
-export default function Success(props) {
+export default connect(
+  ({app}) => ({message: app.message.payment}),
+  {},
+)(function Success(props) {
   return (
     <Layout
       btnEnabled
@@ -40,4 +44,4 @@ export default function Success(props) {
       </View>
     </Layout>
   );
-}
+});

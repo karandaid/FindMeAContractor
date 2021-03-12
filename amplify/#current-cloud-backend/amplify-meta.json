@@ -22,7 +22,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-findmeacontractor-dev-10736-deployment/amplify-cfn-templates/auth/findmeacontractor7a750246-cloudformation-template.yml",
         "logicalId": "authfindmeacontractor7a750246"
       },
-      "lastPushTimeStamp": "2021-03-06T20:15:35.633Z",
+      "lastPushTimeStamp": "2021-03-09T14:24:49.656Z",
       "output": {
         "UserPoolId": "eu-west-2_6LiEPVl6a",
         "AppClientIDWeb": "7n7hitrp7bd2anc3mu2ijo1b87",
@@ -32,6 +32,22 @@
         "UserPoolName": "findmeacontractor7a750246_userpool_7a750246"
       },
       "lastPushDirHash": "5vdQ50UoeYJHmv2I7WbbMBAPNfo="
+    }
+  },
+  "storage": {
+    "Findmeacontractor": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-findmeacontractor-dev-10736-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storageFindmeacontractor"
+      },
+      "lastPushTimeStamp": "2021-03-09T14:24:49.665Z",
+      "output": {
+        "BucketName": "findmeacontractor5f0bcc14d932483aabc269104b955010736-dev",
+        "Region": "eu-west-2"
+      },
+      "lastPushDirHash": "ArUBoz7avCqqIRnygcpu9Mtp5m4="
     }
   }
 }

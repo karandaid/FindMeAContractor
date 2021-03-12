@@ -1,9 +1,13 @@
+import {connect} from 'dva';
 import React from 'react';
-import {View} from 'react-native';
+import {ActivityIndicator, View} from 'react-native';
 import {Button} from '../Button';
 import {Tab} from '../Tab';
 
-export function Layout(props) {
+export const Layout = connect(
+  ({app}) => ({loading: app.loading.layout}),
+  {},
+)((props) => {
   return (
     <View
       style={{
@@ -24,6 +28,22 @@ export function Layout(props) {
           {props.btnProps.children}
         </Button>
       )}
+
+      {props.loading && (
+        <View
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            left: 0,
+            bottom: 0,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(255,255,255,0.4)',
+          }}>
+          <ActivityIndicator color={'black'} />
+        </View>
+      )}
     </View>
   );
-}
+});

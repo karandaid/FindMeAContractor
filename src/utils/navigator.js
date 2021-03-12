@@ -20,84 +20,104 @@ import Bid from '../pages/bid';
 import Bids from '../pages/bids';
 import Payment from '../pages/payment';
 import Success from '../pages/success';
+import Chat from '../pages/chat';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {withAuthenticator, AmplifyTheme} from 'aws-amplify-react-native';
 import Bootstrap, {Container} from './theme';
 import {Auth} from 'aws-amplify';
 import {Authenticator} from 'aws-amplify-react-native/dist/Auth';
 import theme from './theme';
+import {logout} from '../models/app';
+import {connect} from 'dva';
 
 const Stack = createStackNavigator();
 
-function StackNavigator() {
+function StackNavigator(props) {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        options={HeaderConfig({title: 'Browse Jobs'})}
+        options={HeaderConfig({logout: props.logout, title: 'Browse Jobs'})}
         name="Home"
         component={Job}
       />
       <Stack.Screen
-        options={HeaderConfig({title: 'Projects'})}
+        options={HeaderConfig({logout: props.logout, title: 'Projects'})}
         name="Projects"
         component={Applied}
       />
       <Stack.Screen
-        options={HeaderConfig({title: '', back: true})}
+        options={HeaderConfig({logout: props.logout, title: '', back: true})}
         name="Posts"
         component={Posts}
       />
       <Stack.Screen
-        options={HeaderConfig({title: 'Projects'})}
+        options={HeaderConfig({logout: props.logout, title: 'Projects'})}
         name="MyProjects"
         component={Projects}
       />
       <Stack.Screen
-        options={HeaderConfig({title: 'Profile'})}
+        options={HeaderConfig({logout: props.logout, title: 'Profile'})}
         name="Profile"
         component={Profile}
       />
       <Stack.Screen
-        options={HeaderConfig({title: '', back: {title: 'Project Details'}})}
+        options={HeaderConfig({
+          logout: props.logout,
+          title: '',
+          back: {title: 'Project Details'},
+        })}
         name="Post"
         component={Post}
       />
       <Stack.Screen
-        options={HeaderConfig({title: '', back: true})}
+        options={HeaderConfig({logout: props.logout, title: '', back: true})}
         name="Bid"
         component={Bid}
       />
       <Stack.Screen
-        options={HeaderConfig({title: '', back: {title: 'Your Projects'}})}
+        options={HeaderConfig({
+          logout: props.logout,
+          title: '',
+          back: {title: 'Your Projects'},
+        })}
         name="Bids"
         component={Bids}
       />
       <Stack.Screen
-        options={HeaderConfig({title: '', back: true})}
+        options={HeaderConfig({logout: props.logout, title: '', back: true})}
         name="Payment"
         component={Payment}
       />
       <Stack.Screen
-        options={HeaderConfig({title: ''})}
+        options={HeaderConfig({logout: props.logout, title: ''})}
         name="Success"
         component={Success}
+      />
+      <Stack.Screen
+        options={HeaderConfig({
+          logout: props.logout,
+          title: 'Conversation',
+          back: true,
+        })}
+        name="Chat"
+        component={Chat}
       />
     </Stack.Navigator>
   );
 }
 
-const MainNavigator = () => {
+const MainNavigator = (props) => {
   return (
     <>
       <StatusBar barStyle={'dark-content'} />
       <NavigationContainer>
-        <StackNavigator />
+        <StackNavigator logout={props.logout} />
       </NavigationContainer>
     </>
   );
 };
 
-const HeaderConfig = ({title, back}) => {
+const HeaderConfig = ({title, back, logout}) => {
   return {
     title: title,
     headerLeft: (e) => {
@@ -135,10 +155,9 @@ const HeaderConfig = ({title, back}) => {
     headerRight: (e) => {
       const out = async () => {
         try {
+          logout();
           await Auth.signOut();
-        } catch (error) {
-          console.log('Error signing out: ', error);
-        }
+        } catch (error) {}
       };
       return (
         <TouchableOpacity
@@ -174,7 +193,7 @@ const HeaderConfig = ({title, back}) => {
     headerStyle: {
       elevation: 0, // remove shadow on Android
       shadowOpacity: 0,
-      position: 'absolute',
+      // position: 'absolute',
       backgroundColor: '#F6F6F8',
 
       borderColor: '#F6F6F8',
@@ -230,7 +249,7 @@ const MyTheme = Object.assign({}, AmplifyTheme, {
 // };
 
 export default withAuthenticator(
-  MainNavigator,
+  connect(() => {}, {logout})(MainNavigator),
   {
     signUpConfig,
   },
