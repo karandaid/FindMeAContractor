@@ -71,6 +71,7 @@ export default {
         // const jobs = yield Jobs.getJobs(0, 10, 'created_at:desc');
         // yield put({type: 'setState', jobs: jobs.data.data});
         // yield put(stopLoading('layout'));
+        console.log('HERE');
         return;
       }
       const {sub, email, email_verified, name} = user.attributes;

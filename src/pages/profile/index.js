@@ -172,6 +172,8 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                           // get all the user input here
                           const params = {
                             image: fileName,
+                            phone,
+                            address,
                             name,
                           };
                           User.updateJobs(props.user._id, params)

@@ -1,4 +1,5 @@
-export const APIURL = 'http://localhost:8080/api/';
+export const APIURL =
+  'https://elfnovrye5.execute-api.eu-west-2.amazonaws.com/dev/api/';
 export const S3BUCKETURL =
   'https://findmeacontractor5f0bcc14d932483aabc269104b955010736-dev.s3.eu-west-2.amazonaws.com/public/';
 export const FORMATE_DATE = function (date) {
