@@ -159,6 +159,7 @@ export default connect(
         data={search.length > 0 ? search : props.jobs}
       />
       <LocationCom
+        setlocationmodal={setlocationmodal}
         locationmodal={locationmodal}
         onSelect={(e) => {
           console.log('Location modal Closed');

@@ -244,6 +244,7 @@ export default connect(
       />
 
       <LocationCom
+        setlocationmodal={setlocationmodal}
         locationmodal={locationmodal}
         onSelect={(e) => {
           console.log({city: e});
@@ -255,7 +256,7 @@ export default connect(
   );
 });
 
-export const LocationCom = ({onSelect, locationmodal}) => {
+export const LocationCom = ({onSelect, locationmodal, setlocationmodal}) => {
   const [input, setinput] = useState('');
   const [cites, setcites] = useState([]);
   const findLocation = () => {
@@ -272,6 +273,11 @@ export const LocationCom = ({onSelect, locationmodal}) => {
       <View style={{flex: 1}}>
         <View style={{borderWidth: 1, borderColor: 'gray'}}>
           <Input
+            rightComponent={
+              <TouchableOpacity onPress={() => setlocationmodal(false)}>
+                <Icon size={30} color={'black'} name={'close'} />
+              </TouchableOpacity>
+            }
             inputProps={{
               placeholder: 'Type A City',
               placeholderTextColor: 'gray',
