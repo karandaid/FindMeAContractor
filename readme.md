@@ -1,5 +1,11 @@
 # FindMeAContractor
 
+## Fixes
+
+    # Location based Seraching
+    # Signup Screen
+    # Profile Throwing errors.
+
 ## Installation
 
     git clone https://github.com/karandaid/FindMeAContractor.git
