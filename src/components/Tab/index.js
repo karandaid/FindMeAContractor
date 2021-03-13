@@ -10,7 +10,7 @@ export function Tab({containerStyle, onTabChange, active}) {
     {name: 'newspaper-outline', onPress: () => navigation.replace('Projects')},
     {
       name: 'ios-add-circle-outline',
-      onPress: () => navigation.navigate('Posts'),
+      onPress: () => navigation.naviga('Posts'),
     },
     {
       name: 'paper-plane-outline',

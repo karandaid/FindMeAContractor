@@ -5,6 +5,12 @@ import Categories from '../service/categories';
 import User from '../service/user';
 import Bids from '../service/bid';
 import {Alert} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {storeData, getData} from '../utils/index';
+import Geolocation, {
+  requestAuthorization,
+} from 'react-native-geolocation-service';
+import axios from 'axios';
 
 const namespace = 'app';
 export const authenticated = () => {
@@ -44,6 +50,7 @@ export default {
   namespace,
   state: {
     user: undefined,
+    location: undefined,
     jobs: [],
     bids: [],
     categories: [],
@@ -63,15 +70,10 @@ export default {
 
   effects: {
     *authenticated(_, {put, select, call}) {
-      console.log('We are being called');
       yield put(startLoading('layout'));
       const user = yield Auth.currentUserInfo();
       const u = yield select(({app}) => app.user);
       if (u) {
-        // const jobs = yield Jobs.getJobs(0, 10, 'created_at:desc');
-        // yield put({type: 'setState', jobs: jobs.data.data});
-        // yield put(stopLoading('layout'));
-        console.log('HERE');
         return;
       }
       const {sub, email, email_verified, name} = user.attributes;
@@ -202,8 +204,13 @@ export default {
     },
     *addABid({data}, {put, select, call}) {
       yield put(startLoading('layout'));
+      const location = yield getData('@location');
       const user = yield select(({app}) => app.user);
-      const cr = yield call(Bids.setBids, {...data, uid: user._id});
+      const cr = yield call(Bids.setBids, {
+        ...data,
+        uid: user._id,
+        location: location.address.city,
+      });
 
       yield put(startmessage('payment', cr.data));
       yield put(stopLoading('layout'));
@@ -211,7 +218,33 @@ export default {
   },
 
   subscriptions: {
-    async Init({dispatch}) {},
+    async Init({dispatch}) {
+      Geolocation.getCurrentPosition(
+        async (position) => {
+          console.log({position: position.coords});
+          const location = await getData('@location');
+          if (
+            !location &&
+            location.lat != position.coords.latitude &&
+            location.lng != position.coords.longitude
+          ) {
+            axios
+              .get(
+                `https://us1.locationiq.com/v1/reverse.php?key=pk.a8f720dfd5eaefeec41bfbb7f41d62c6&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`,
+              )
+              .then(async ({data}) => {
+                storeData(data, '@location');
+                const location = await getData('@location');
+              });
+          }
+        },
+        (error) => {
+          // See error code charts below.
+          console.log(error.code, error.message);
+        },
+        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      );
+    },
   },
 
   reducers: {

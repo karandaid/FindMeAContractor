@@ -162,20 +162,22 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                         try {
                           const e = images[0];
                           const fileName =
-                            'profile/' + RANDOMWORDS(4) + '_' + e.fileName;
-                          const response = await fetch(e.uri);
-                          const blob = await response.blob();
-                          await Storage.put(fileName, blob, {
-                            contentType: e.type, // contentType is optional
-                          });
-
+                            'profile/' + RANDOMWORDS(4) + '_' + e?.fileName;
+                          if (images.length > 0) {
+                            const response = await fetch(e.uri);
+                            const blob = await response.blob();
+                            await Storage.put(fileName, blob, {
+                              contentType: e.type, // contentType is optional
+                            });
+                          }
                           // get all the user input here
                           const params = {
-                            image: fileName,
                             phone,
                             address,
                             name,
                           };
+                          if (images.length > 0) params['image'] = fileName;
+
                           User.updateJobs(props.user._id, params)
                             .then((e) => {
                               if (e.data.error) return;

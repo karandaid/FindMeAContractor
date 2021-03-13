@@ -72,7 +72,6 @@ export default connect(
                 onPress: () => {
                   props.addABid(data);
                   setloading(true);
-                  // props.navigation.navigate('Success');
                 },
               },
               {text: 'Cancel', onPress: () => console.log('No Pressed')},

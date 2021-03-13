@@ -12,7 +12,7 @@ export const Layout = connect(
     <View
       style={{
         flex: 1,
-        backgroundColor: '#F6F6F8',
+        // backgroundColor: '#F6F6F8',
       }}>
       <View
         style={{

@@ -8,6 +8,8 @@ import {
   Dimensions,
   TouchableOpacity,
   Alert,
+  ScrollView,
+  Platform,
 } from 'react-native';
 import {Input} from '../../components/Input';
 import {Button} from '../../components/Button';
@@ -19,7 +21,10 @@ import {addAJob, startmessage} from '../../models/app';
 import DocumentPicker from 'react-native-document-picker';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {Storage} from 'aws-amplify';
-import {RANDOMWORDS} from '../../utils';
+import {APIURL, getData, RANDOMWORDS, getCountryName} from '../../utils';
+import {EmptyListMessage} from '../job';
+import axios from 'axios';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default connect(
   ({app}) => ({categories: app.categories, message: app.message.post}),
@@ -32,6 +37,9 @@ export default connect(
   const [modal, setmodal] = useState(false);
   const [price, setprice] = useState([0, 0, '$']);
   const [loading, setloading] = useState(false);
+  const [locationmodal, setlocationmodal] = useState(false);
+  const [city, setcity] = useState();
+
   const create = async () => {
     if (text && description && category && images.length > 0) {
       // Upload Images to the DB
@@ -58,7 +66,14 @@ export default connect(
       }
 
       // Create a JOB with the images reference
-      props.addAJob({title: text, description, category, price, images: img});
+      props.addAJob({
+        title: text,
+        description,
+        category,
+        city,
+        price,
+        images: img,
+      });
     } else {
       Alert.alert(
         'Error',
@@ -119,7 +134,7 @@ export default connect(
       btnProps={{
         children: 'Post',
         onPress: () => {
-          if (text && description && category) {
+          if (text && description && category && city) {
             setmodal(true);
           } else {
             Alert.alert(
@@ -133,87 +148,92 @@ export default connect(
       }}
       btnEnabled
       disableTabs>
-      <Section style={{height: '100%'}}>
-        <Text
-          style={{
-            fontSize: 26,
-            fontWeight: 'bold',
-            fontFamily: 'Andale Mono',
-          }}>
-          Post a Job
-        </Text>
+      <ScrollView>
+        <Section style={{height: '100%'}}>
+          <Text
+            style={{
+              fontSize: 26,
+              fontWeight: 'bold',
+              fontFamily: 'Andale Mono',
+            }}>
+            Post a Job
+          </Text>
 
-        <View style={{height: 40}} />
-        <View style={{flex: 1}}>
-          <View style={{marginBottom: 10}}>
-            <Text
-              style={{
-                color: '#707070',
-                fontFamily: 'Andale Mono',
-                marginBottom: 5,
-              }}>
-              Title
-            </Text>
-            <Input inputProps={{onChangeText: (e) => settext(e)}} />
-          </View>
-          <View style={{marginBottom: 10}}>
-            <Text
-              style={{
-                color: '#707070',
-                fontFamily: 'Andale Mono',
-                marginBottom: 5,
-              }}>
-              Categories
-            </Text>
-            <ModalDropdown
-              onSelect={(e) => setcategory(props.categories[e].name)}
-              dropdownStyle={{width: '100%', fontSize: 16, marginTop: 10}}
-              style={{
-                paddingHorizontal: 10,
-                paddingVertical: 12,
-                fontSize: 14,
-                backgroundColor: 'white',
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}
-              textStyle={{
-                fontSize: 20,
-                fontFamily: 'Andale Mono',
-              }}
-              renderButtonText={(e) => <Text>{e}</Text>}
-              renderRowText={(e) => (
-                <Text style={{fontSize: 16, fontFamily: 'Andale Mono'}}>
-                  {e}
-                </Text>
-              )}
-              options={props?.categories?.map((e) => e.name)}
-            />
-          </View>
+          <View style={{height: 40}} />
+          <View style={{flex: 1}}>
+            <View style={{marginBottom: 10}}>
+              <Text
+                style={{
+                  color: '#707070',
+                  fontFamily: 'Andale Mono',
+                  marginBottom: 5,
+                }}>
+                Title
+              </Text>
+              <Input inputProps={{onChangeText: (e) => settext(e)}} />
+            </View>
+            <View style={{marginBottom: 10}}>
+              <Text
+                style={{
+                  color: '#707070',
+                  fontFamily: 'Andale Mono',
+                  marginBottom: 5,
+                }}>
+                Categories
+              </Text>
+              <ModalDropdown
+                onSelect={(e) => setcategory(props.categories[e].name)}
+                dropdownStyle={{width: '100%', fontSize: 16, marginTop: 10}}
+                style={{
+                  paddingHorizontal: 10,
+                  paddingVertical: 12,
+                  fontSize: 14,
+                  backgroundColor: 'white',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
+                textStyle={{
+                  fontSize: 20,
+                  fontFamily: 'Andale Mono',
+                }}
+                renderButtonText={(e) => <Text>{e}</Text>}
+                renderRowText={(e) => (
+                  <Text style={{fontSize: 16, fontFamily: 'Andale Mono'}}>
+                    {e}
+                  </Text>
+                )}
+                options={props?.categories?.map((e) => e.name)}
+              />
+            </View>
+            <Button onPress={() => setlocationmodal(true)} centered>
+              {city ? city : 'Select a City'}
+            </Button>
 
-          <View>
-            <Text
-              style={{
-                color: '#707070',
-                fontFamily: 'Andale Mono',
-                marginBottom: 5,
-              }}>
-              Description
-            </Text>
-            <Input
-              onChangeText={(e) => setdescription(e)}
-              containerStyle={{height: 200, alignItems: 'flex-start'}}
-              inputProps={{
-                multiline: true,
-                numberOfLines: 4,
-                onChangeText: (e) => setdescription(e),
-              }}
-            />
+            <View>
+              <Text
+                style={{
+                  color: '#707070',
+                  fontFamily: 'Andale Mono',
+                  marginBottom: 5,
+                }}>
+                Description
+              </Text>
+              <Input
+                onChangeText={(e) => setdescription(e)}
+                containerStyle={{height: 200, alignItems: 'flex-start'}}
+                inputProps={{
+                  multiline: true,
+                  numberOfLines: 4,
+                  onChangeText: (e) => setdescription(e),
+                }}
+              />
+            </View>
+            <View style={{height: 0}} />
           </View>
-          <View style={{height: 0}} />
-        </View>
-        <ImageSection images={[images, setimages]} />
-      </Section>
+          <ImageSection images={[images, setimages]} />
+        </Section>
+      </ScrollView>
       <ModalView
         setprice={setPricing}
         create={create}
@@ -222,9 +242,74 @@ export default connect(
         setloading={setloading}
         onRequestClose={() => setmodal(false)}
       />
+
+      <LocationCom
+        locationmodal={locationmodal}
+        onSelect={(e) => {
+          console.log({city: e});
+          setcity(e);
+          setlocationmodal(false);
+        }}
+      />
     </Layout>
   );
 });
+
+export const LocationCom = ({onSelect, locationmodal}) => {
+  const [input, setinput] = useState('');
+  const [cites, setcites] = useState([]);
+  const findLocation = () => {
+    axios.get(APIURL + 'cities/' + input).then(({data}) => {
+      setcites(data.cities);
+    });
+  };
+
+  return (
+    <Modal visible={locationmodal} animationType="slide" transparent={false}>
+      <View
+        style={{height: Platform.OS == 'ios' && 40, backgroundColor: 'black'}}
+      />
+      <View style={{flex: 1}}>
+        <View style={{borderWidth: 1, borderColor: 'gray'}}>
+          <Input
+            inputProps={{
+              placeholder: 'Type A City',
+              placeholderTextColor: 'gray',
+              onSubmitEditing: findLocation,
+              onChangeText: setinput,
+            }}
+          />
+        </View>
+        <FlatList
+          data={cites}
+          renderItem={({item, index}) => (
+            <Button
+              leftIcon={<Icon size={20} color={'black'} name={'pin-outline'} />}
+              onPress={() => {
+                onSelect(item.name);
+              }}
+              style={{
+                backgroundColor: 'white',
+              }}
+              centered>
+              {item.name}, {getCountryName(item.country)}
+            </Button>
+          )}
+          ListEmptyComponent={EmptyListMessage}
+        />
+      </View>
+      <Button
+        onPress={async () => {
+          const loc = await getData('@location');
+          onSelect(loc.address.city);
+        }}
+        centered
+        dark>
+        Use Current Location
+      </Button>
+    </Modal>
+  );
+};
 
 const ModalView = connect(
   ({}) => ({}),

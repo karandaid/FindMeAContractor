@@ -70,7 +70,14 @@ export function APJobCard({...props}) {
             numberOfLines={2}>
             {data.title}
           </Text>
-
+          {item.location && (
+            <Text
+              style={{
+                fontFamily: 'Andale Mono',
+              }}>
+              location : {item.location}
+            </Text>
+          )}
           <Text
             style={{
               marginTop: 10,
@@ -97,7 +104,7 @@ export function APJobCard({...props}) {
               borderRadius: 20,
             }}
             source={{
-              uri: S3BUCKETURL + user.image,
+              uri: user && S3BUCKETURL + user.image,
             }}
           />
           <Text

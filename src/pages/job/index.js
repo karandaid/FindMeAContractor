@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, Image, View, FlatList} from 'react-native';
+import {Text, Image, View, FlatList, TouchableOpacity} from 'react-native';
 import {Input} from '../../components/Input';
 import {Button, OutlineButton} from '../../components/Button';
 import {TextTabs} from '../../components/Tab';
@@ -13,7 +13,11 @@ import {authenticated, getJobs} from '../../models/app';
 import ModalDropdown from 'react-native-modal-dropdown';
 import Jobs from '../../service/jobs';
 import throttle from 'lodash.throttle';
-import {LIMIT} from '../../utils';
+import {getData, LIMIT} from '../../utils';
+import Geolocation, {
+  requestAuthorization,
+} from 'react-native-geolocation-service';
+import {LocationCom} from '../posts';
 
 export default connect(
   ({app}) => ({
@@ -26,19 +30,29 @@ export default connect(
   {getJobs, authenticated},
 )(function Job(props) {
   const [pagination, setpagination] = useState(0);
+  const [city, setcity] = useState();
   const [filter, setfilter] = useState('status:active');
+  const [locationmodal, setlocationmodal] = useState(false);
   useEffect(() => {
+    (async () => {
+      const loc = await getData('@location');
+      setcity(loc.address.city);
+    })();
+
     props.authenticated();
   }, []);
 
   useEffect(() => {
-    props.getJobs({
-      page: pagination,
-      limit: LIMIT,
-      sort: 'created_at:desc',
-      filter: filter,
-    });
-  }, [filter, pagination]);
+    console.log(0);
+    if (city) {
+      props.getJobs({
+        page: pagination,
+        limit: LIMIT,
+        sort: 'created_at:desc',
+        filter: filter + ',city:' + city + '',
+      });
+    }
+  }, [filter, pagination, city]);
   const [search, setsearch] = useState([]);
   const [searchInput, setsearchInput] = useState(undefined);
 
@@ -66,12 +80,34 @@ export default connect(
             onChangeText: setsearchInput,
             onSubmitEditing: () => getSearchContent(searchInput),
           }}
+          rightComponent={
+            <TouchableOpacity onPress={() => setlocationmodal(true)}>
+              <Icon size={20} color={'black'} name={'md-earth-outline'} />
+            </TouchableOpacity>
+          }
           leftComponent={
-            <Icon size={20} color={'black'} name={'search-outline'} />
+            <TouchableOpacity>
+              <Icon size={20} color={'black'} name={'search-outline'} />
+            </TouchableOpacity>
           }
         />
         <View style={{width: 8}} />
-        {/* <OutlineButton centered>Categories</OutlineButton> */}
+        {/* <OutlineButton
+          onPress={async () =>
+            await Geolocation.getCurrentPosition(
+              (position) => {
+                console.log(position);
+              },
+              (error) => {
+                // See error code charts below.
+                console.log(error.code, error.message);
+              },
+              {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+            )
+          }
+          centered>
+          Categories
+        </OutlineButton> */}
         <ModalDropdown
           defaultValue={'Categories'}
           onSelect={(e) =>
@@ -122,10 +158,18 @@ export default connect(
         )}
         data={search.length > 0 ? search : props.jobs}
       />
+      <LocationCom
+        locationmodal={locationmodal}
+        onSelect={(e) => {
+          console.log('Location modal Closed');
+          setcity(e);
+          setlocationmodal(false);
+        }}
+      />
     </Layout>
   );
 });
-const EmptyListMessage = ({item}) => {
+export const EmptyListMessage = ({item}) => {
   return (
     // Flat List Item
     <Text

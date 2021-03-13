@@ -53,6 +53,13 @@ export function JobCard(props) {
               }}>
               status :{item.status}
             </Text>
+            <Text
+              style={{
+                fontFamily: 'Andale Mono',
+                fontSize: 12,
+              }}>
+              location :{item.city}
+            </Text>
           </View>
           <View
             style={{

@@ -51,7 +51,7 @@ function StackNavigator(props) {
         component={Posts}
       />
       <Stack.Screen
-        options={HeaderConfig({logout: props.logout, title: 'Projects'})}
+        options={HeaderConfig({logout: props.logout, title: 'My Projects'})}
         name="MyProjects"
         component={Projects}
       />
@@ -224,17 +224,18 @@ const signUpConfig = {
     },
     {
       label: 'Email',
-      key: 'email',
-      required: true,
-      type: 'string',
-    },
-
-    {
-      label: 'Username',
       key: 'username',
       required: true,
       type: 'string',
     },
+
+    // {
+    //   label: 'Username',
+    //   key: 'username',
+    //   required: true,
+    //   type: 'string',
+
+    // },
   ],
 };
 
