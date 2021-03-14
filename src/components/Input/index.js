@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, TextInput} from 'react-native';
+import {View, TextInput, Platform} from 'react-native';
 
 export function Input(props) {
   return (
     <View
       style={{
         paddingHorizontal: 10,
-        paddingVertical: 12,
+        paddingVertical: Platform.OS == 'ios' ? 12 : 0,
         fontSize: 14,
         backgroundColor: 'white',
         display: 'flex',
@@ -20,7 +20,7 @@ export function Input(props) {
         style={{
           marginLeft: 10,
           flex: 1,
-          fontSize: 20,
+          fontSize: 16,
           fontFamily: 'Andale Mono',
           ...props.inputStyle,
         }}

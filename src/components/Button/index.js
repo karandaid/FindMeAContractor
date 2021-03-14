@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Platform} from 'react-native';
 
 export function OutlineButton({onPress, centered, style, textProps, ...props}) {
   return (
@@ -40,8 +40,10 @@ export function Button({onPress, style, textProps, centered, dark, ...props}) {
           flexDirection: 'row',
           flexWrap: 'wrap',
           paddingHorizontal: 12,
-          paddingVertical: 20,
+          paddingVertical: Platform.os == 'ios' ? 15 : 12,
           backgroundColor: dark ? 'black' : 'white',
+          justifyContent: 'center',
+          alignItems: 'center',
           ...style,
         }}>
         {props.leftIcon && props.leftIcon}
@@ -50,7 +52,7 @@ export function Button({onPress, style, textProps, centered, dark, ...props}) {
           style={{
             flex: 1,
             fontFamily: 'Andale Mono',
-            fontSize: 16,
+            fontSize: 14,
             textAlign: centered && 'center',
             color: dark ? 'white' : 'black',
             ...textProps,

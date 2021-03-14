@@ -84,7 +84,7 @@ export function APJobCard({...props}) {
               fontFamily: 'Andale Mono',
               color: 'red',
             }}>
-            {(!job || job.status == 'completed' || job.status == 'closed') &&
+            {(!job || job.status == 'closed') &&
               'We Advice you to delete this bid as the job status either completed , closed or deleted '}
           </Text>
         </View>

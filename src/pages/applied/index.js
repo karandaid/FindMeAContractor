@@ -1,18 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Text,
-  Image,
-  View,
-  FlatList,
-  ActivityIndicator,
-  Alert,
-} from 'react-native';
-import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
+import {Text, View, FlatList, ActivityIndicator, Alert} from 'react-native';
+import {Button} from '../../components/Button';
 import {TextTabs} from '../../components/Tab';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {APJobCard} from '../../components/Card/APJobCard';
-import {JobCard} from '../../components/Card/JobCard';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {connect} from 'dva';
@@ -105,15 +95,6 @@ export default connect(
                         Bids.deleteABid(e.item._id).then((e) =>
                           console.log(e.data),
                         ),
-                    });
-                    buttons.push({
-                      text: 'Closed',
-                      onPress: () => {
-                        Bids.updateBids(e.item._id, {
-                          status: 'closed',
-                        }).then((e) => console.log(e.data));
-                        setselected(2);
-                      },
                     });
                   }
                   console.log({buttons});

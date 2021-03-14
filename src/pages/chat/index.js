@@ -8,17 +8,14 @@ import {
   Alert,
 } from 'react-native';
 import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
-import {TextTabs} from '../../components/Tab';
+import {Button} from '../../components/Button';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {APJobCard} from '../../components/Card/APJobCard';
-import {JobCard} from '../../components/Card/JobCard';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {connect} from 'dva';
 import Chats from '../../service/chat';
 import {RANDOMWORDS, S3BUCKETURL} from '../../utils';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import {Storage} from 'aws-amplify';
 
 export default connect(

@@ -1,22 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   Image,
   View,
-  FlatList,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from 'react-native';
 import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
-import {TextTabs} from '../../components/Tab';
+import {Button} from '../../components/Button';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {APJobCard} from '../../components/Card/APJobCard';
-import {JobCard} from '../../components/Card/JobCard';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {connect} from 'dva';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import User from '../../service/user';
 import {RANDOMWORDS, S3BUCKETURL} from '../../utils';
 import {Storage} from 'aws-amplify';
@@ -32,14 +29,15 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
     return (
       <Layout active={5}>
         <View style={{flex: 1}} />
-        <View>
+        <ScrollView>
           <Section>
             <View style={{alignItems: 'center', position: 'relative'}}>
               <Image
                 source={{
-                  uri: props.user.image
-                    ? S3BUCKETURL + props.user.image
-                    : images[0]?.uri,
+                  uri:
+                    images.length == 0
+                      ? S3BUCKETURL + props.user.image
+                      : images[0]?.uri,
                 }}
                 style={{
                   width: 200,
@@ -126,7 +124,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Input
                 inputProps={{
                   placeholder: 'You address',
-                  value: address != undefined ? name : props.user.address,
+                  value: address != undefined ? address : props.user.address,
                   onChangeText: setaddress,
                 }}
               />
@@ -222,7 +220,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               UPDATE
             </Button>
           </Section>
-        </View>
+        </ScrollView>
       </Layout>
     );
   },

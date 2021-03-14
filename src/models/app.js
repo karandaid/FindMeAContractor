@@ -74,6 +74,7 @@ export default {
       const user = yield Auth.currentUserInfo();
       const u = yield select(({app}) => app.user);
       if (u) {
+        yield put(stopLoading('layout'));
         return;
       }
       const {sub, email, email_verified, name} = user.attributes;
@@ -122,6 +123,7 @@ export default {
           yield put({type: 'getCategories'});
         }
       }
+      yield put(stopLoading('layout'));
     },
     *getJobs(
       {page = 0, limit = 10, sort = 'created_at:desc', filter},

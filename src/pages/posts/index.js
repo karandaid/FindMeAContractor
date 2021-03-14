@@ -18,8 +18,7 @@ import {Section} from '../../components/section';
 import ModalDropdown from 'react-native-modal-dropdown';
 import {connect} from 'dva';
 import {addAJob, startmessage} from '../../models/app';
-import DocumentPicker from 'react-native-document-picker';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import {Storage} from 'aws-amplify';
 import {APIURL, getData, RANDOMWORDS, getCountryName} from '../../utils';
 import {EmptyListMessage} from '../job';
@@ -268,7 +267,10 @@ export const LocationCom = ({onSelect, locationmodal, setlocationmodal}) => {
   return (
     <Modal visible={locationmodal} animationType="slide" transparent={false}>
       <View
-        style={{height: Platform.OS == 'ios' && 40, backgroundColor: 'black'}}
+        style={{
+          height: Platform.OS == 'ios' ? 40 : 0,
+          backgroundColor: 'black',
+        }}
       />
       <View style={{flex: 1}}>
         <View style={{borderWidth: 1, borderColor: 'gray'}}>

@@ -1,22 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {Text, Image, View, FlatList, TouchableOpacity} from 'react-native';
+import {Text, View, FlatList, TouchableOpacity} from 'react-native';
 import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
-import {TextTabs} from '../../components/Tab';
+import {Button} from '../../components/Button';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {APJobCard} from '../../components/Card/APJobCard';
 import {JobCard} from '../../components/Card/JobCard';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {connect} from 'dva';
 import {authenticated, getJobs} from '../../models/app';
 import ModalDropdown from 'react-native-modal-dropdown';
-import Jobs from '../../service/jobs';
-import throttle from 'lodash.throttle';
-import {getData, LIMIT} from '../../utils';
-import Geolocation, {
-  requestAuthorization,
-} from 'react-native-geolocation-service';
+import {getData, LIMIT, RANDOMWORDS} from '../../utils';
 import {LocationCom} from '../posts';
 
 export default connect(
@@ -33,6 +26,7 @@ export default connect(
   const [city, setcity] = useState();
   const [filter, setfilter] = useState('status:active');
   const [locationmodal, setlocationmodal] = useState(false);
+  const [random, setrandom] = useState();
   useEffect(() => {
     (async () => {
       const loc = await getData('@location');
@@ -52,7 +46,7 @@ export default connect(
         filter: filter + ',city:' + city + '',
       });
     }
-  }, [filter, pagination, city]);
+  }, [filter, pagination, city, random]);
   const [search, setsearch] = useState([]);
   const [searchInput, setsearchInput] = useState(undefined);
 
@@ -120,6 +114,8 @@ export default connect(
             paddingHorizontal: 8,
             paddingVertical: 18,
             backgroundColor: 'white',
+            justifyContent: 'center',
+            alignItems: 'center',
             fontFamily: 'Andale Mono',
           }}
           textStyle={{fontFamily: 'Andale Mono'}}
@@ -141,12 +137,13 @@ export default connect(
         ListEmptyComponent={EmptyListMessage}
         onRefresh={() => {
           setpagination(0);
-          props.getJobs({
-            page: 0,
-            limit: 4,
-            sort: 'created_at:desc',
-            filter: false,
-          });
+          setrandom(RANDOMWORDS(2));
+          // props.getJobs({
+          //   page: 0,
+          //   limit: 4,
+          //   sort: 'created_at:desc',
+          //   filter: false,
+          // });
         }}
         refreshing={props.loading}
         renderItem={(e) => (

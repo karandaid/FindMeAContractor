@@ -1,25 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Text,
-  Image,
-  View,
-  FlatList,
-  TouchableOpacity,
-  Modal,
-  Alert,
-  Dimensions,
-} from 'react-native';
-import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
-import {TextTabs} from '../../components/Tab';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {APJobCard} from '../../components/Card/APJobCard';
-import {JobCard} from '../../components/Card/JobCard';
+import {Text, View, FlatList, TouchableOpacity, Alert} from 'react-native';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {BidsCard} from '../../components/Card/BidsCard';
 import Bid from '../../service/bid';
-import User from '../../service/user';
 import {connect} from 'dva';
 import {awardABid} from '../../models/app';
 import Jobs from '../../service/jobs';

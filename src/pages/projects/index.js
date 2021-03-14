@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {Text, Image, View, FlatList, ActivityIndicator} from 'react-native';
-import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
+import {Text, View, FlatList, ActivityIndicator} from 'react-native';
+import {Button} from '../../components/Button';
 import {TextTabs} from '../../components/Tab';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {APJobCard} from '../../components/Card/APJobCard';
 import {JobCard} from '../../components/Card/JobCard';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
@@ -19,6 +16,7 @@ export default connect(({app}) => ({user: app.user}))(function Projects(props) {
   const [loading, setloading] = useState(false);
   const [pagination, setpagination] = useState(0);
   useEffect(() => {
+    setprojects([]);
     setpagination(0);
   }, [selected]);
   useEffect(() => {

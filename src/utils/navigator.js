@@ -109,7 +109,7 @@ function StackNavigator(props) {
 const MainNavigator = (props) => {
   return (
     <>
-      <StatusBar barStyle={'dark-content'} />
+      <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
       <NavigationContainer>
         <StackNavigator logout={props.logout} />
       </NavigationContainer>
@@ -250,7 +250,7 @@ const MyTheme = Object.assign({}, AmplifyTheme, {
 // };
 
 export default withAuthenticator(
-  connect(() => {}, {logout})(MainNavigator),
+  connect(() => ({}), {logout})(MainNavigator),
   {
     signUpConfig,
   },

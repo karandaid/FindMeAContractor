@@ -10,7 +10,7 @@ export function Tab({containerStyle, onTabChange, active}) {
     {name: 'newspaper-outline', onPress: () => navigation.replace('Projects')},
     {
       name: 'ios-add-circle-outline',
-      onPress: () => navigation.navigate('Posts'),
+      onPress: () => navigation.replace('Posts'),
     },
     {
       name: 'paper-plane-outline',
@@ -31,7 +31,7 @@ export function Tab({containerStyle, onTabChange, active}) {
     <View
       style={{
         backgroundColor: 'white',
-        paddingBottom: Platform.OS == 'ios' && 20,
+        paddingBottom: Platform.OS == 'ios' ? 20 : 0,
 
         height: Platform.OS == 'ios' ? 70 : 50,
         flexDirection: 'row',
@@ -45,8 +45,8 @@ export function Tab({containerStyle, onTabChange, active}) {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            borderTopWidth: selected == i && 2,
-            borderTopColor: selected == i && 'black',
+            borderTopWidth: selected == i ? 2 : undefined,
+            borderTopColor: selected == i ? 'black' : undefined,
           }}>
           <Icon size={25} color={'black'} name={e.name} />
         </TouchableOpacity>
@@ -76,10 +76,10 @@ export function TextTabs({containerStyle, onTabChange, tabsContent}) {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            borderTopWidth: selected == i && 1,
-            borderTopColor: selected == i && 'black',
-            borderBottomWidth: selected == i && 1,
-            borderBottomColor: selected == i && 'black',
+            borderTopWidth: selected == i ? 1 : undefined,
+            borderTopColor: selected == i ? 'black' : undefined,
+            borderBottomWidth: selected == i ? 1 : undefined,
+            borderBottomColor: selected == i ? 'black' : undefined,
           }}>
           <Text style={{fontFamily: 'Andale Mono'}}>{e}</Text>
         </TouchableOpacity>

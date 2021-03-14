@@ -8,14 +8,10 @@ import {
   Alert,
 } from 'react-native';
 import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
+import {Button} from '../../components/Button';
 import {TextTabs} from '../../components/Tab';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {APJobCard} from '../../components/Card/APJobCard';
-import {JobCard} from '../../components/Card/JobCard';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
-import {BidsCard} from '../../components/Card/BidsCard';
 import {addABid, startmessage} from '../../models/app';
 import {connect} from 'dva';
 

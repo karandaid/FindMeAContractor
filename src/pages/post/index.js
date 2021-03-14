@@ -9,26 +9,22 @@ import {
   Alert,
   Modal,
   Dimensions,
-  Platform,
 } from 'react-native';
 import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
-import {TextTabs} from '../../components/Tab';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {APJobCard} from '../../components/Card/APJobCard';
-import {JobCard} from '../../components/Card/JobCard';
+import {Button} from '../../components/Button';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {S3BUCKETURL} from '../../utils';
 import Bids from '../../service/bid';
 import Jobs from '../../service/jobs';
 import {connect} from 'dva';
-import {Rating, AirbnbRating} from 'react-native-ratings';
+import {Rating} from 'react-native-ratings';
 import {useNavigation} from '@react-navigation/native';
 
 export default connect(({app}) => ({user: app.user}))(function Post(props) {
   const selfCheck = props.route.params?.self;
   const {item, index} = props.route.params.data;
+  console.log({item});
   const awarded = props.route.params.awarded;
   const [select, setselect] = useState(item.images[0]);
   const [loading, setloading] = useState(false);
@@ -63,24 +59,24 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
           text: 'Yes',
           onPress: () => {
             // Delete Here
-            Bids.getBids(0, 1, 'created_at:desc', 'jid:' + id).then((e) => {
-              if (e.data.error) return;
+            // Bids.getBids(0, 1, 'created_at:desc', 'jid:' + id).then((e) => {
+            //   if (e.data.error) return;
 
-              const data = e.data.data;
+            //   const data = e.data.data;
 
-              if (data.length > 0) {
-                Bids.deleteABid(id, true).then((x) => {
-                  if (x.data.erorr) {
-                    setloading(false);
-                  } else {
-                    // delete the job.
-                    deleteJOB(id);
-                  }
-                });
-              } else {
-                deleteJOB(id);
-              }
-            });
+            //   if (data.length > 0) {
+            //     Bids.deleteABid(id, true).then((x) => {
+            //       if (x.data.erorr) {
+            //         setloading(false);
+            //       } else {
+            //         // delete the job.
+            //         deleteJOB(id);
+            //       }
+            //     });
+            //   } else {
+            deleteJOB(id);
+            //   }
+            // });
           },
         },
         {
@@ -98,6 +94,7 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
   console.log('**', item.status != 'completed' || item.status != 'closed');
   return (
     <Layout
+      loading={loading}
       btnEnabled={precheckBTN()}
       btnProps={{
         dark: awarded && true,
@@ -248,44 +245,45 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
           </Text>
         </Section>
       </ScrollView>
-      {item.status == 'active' && item.uid == props.user._id && (
-        <Section style={{marginTop: 20, backgroundColor: 'transparent'}}>
-          <Button
-            onPress={() => {
-              Alert.alert('Actions', 'Select either one of the actions.', [
-                {
-                  text: 'Close',
-                  onPress: () => {},
-                },
-                {
-                  text: 'Delete this Post',
-                  onPress: deleteAPost,
-                },
-                {
-                  text:
-                    item.status == 'awarded'
-                      ? 'Mark as Completed.'
-                      : 'Mark as Closed.',
-                  onPress: () => {
-                    if (item.status == 'awarded') {
-                      setmodal(true);
-                    } else {
-                      Jobs.updateJobs(item._id, {
-                        status: 'closed',
-                      }).then((e) => console.log(e.data));
-                      props.navigation.replace('MyProjects');
-                    }
+      {(item.status == 'active' || item.status == 'awarded') &&
+        item.uid == props.user._id && (
+          <Section style={{marginTop: 20, backgroundColor: 'transparent'}}>
+            <Button
+              onPress={() => {
+                Alert.alert('Actions', 'Select either one of the actions.', [
+                  {
+                    text: 'Close',
+                    onPress: () => {},
                   },
-                },
-              ]);
-              // deleteAPost
-            }}
-            dark
-            centered>
-            Perform an Action
-          </Button>
-        </Section>
-      )}
+                  {
+                    text: 'Delete this Post',
+                    onPress: deleteAPost,
+                  },
+                  {
+                    text:
+                      item.status == 'awarded'
+                        ? 'Mark as Completed.'
+                        : 'Mark as Closed.',
+                    onPress: () => {
+                      if (item.status == 'awarded') {
+                        setmodal(true);
+                      } else {
+                        Jobs.updateJobs(item._id, {
+                          status: 'closed',
+                        }).then((e) => console.log(e.data));
+                        props.navigation.replace('MyProjects');
+                      }
+                    },
+                  },
+                ]);
+                // deleteAPost
+              }}
+              dark
+              centered>
+              Perform an Action
+            </Button>
+          </Section>
+        )}
       <Mod item={item} setmodal={setmodal} modal={modal} />
     </Layout>
   );

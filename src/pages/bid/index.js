@@ -1,14 +1,8 @@
 import React, {useState} from 'react';
-import {Text, Image, View, FlatList, Alert} from 'react-native';
+import {Text, View, Alert} from 'react-native';
 import {Input} from '../../components/Input';
-import {Button, OutlineButton} from '../../components/Button';
-import {TextTabs} from '../../components/Tab';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {APJobCard} from '../../components/Card/APJobCard';
-import {JobCard} from '../../components/Card/JobCard';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
-import {addABid} from '../../models/app';
 
 export default function Bid(props) {
   const [description, setdescription] = useState();
