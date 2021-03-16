@@ -4,7 +4,7 @@ import Jobs from '../service/jobs';
 import Categories from '../service/categories';
 import User from '../service/user';
 import Bids from '../service/bid';
-import {Alert} from 'react-native';
+import {Alert, PermissionsAndroid, Platform} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {storeData, getData} from '../utils/index';
 import Geolocation, {
@@ -221,6 +221,27 @@ export default {
 
   subscriptions: {
     async Init({dispatch}) {
+      if (Platform.OS == 'android') {
+        await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            title: 'Cool Photo App Camera Permission',
+            message:
+              'Cool Photo App needs access to your camera ' +
+              'so you can take awesome pictures.',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          },
+        );
+      }
+      if (Platform.OS === 'ios') {
+        const auth = await Geolocation.requestAuthorization('whenInUse');
+        if (auth === 'granted') {
+          // do something if granted...
+        }
+      }
+
       Geolocation.getCurrentPosition(
         async (position) => {
           console.log({position: position.coords});

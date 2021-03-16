@@ -36,7 +36,10 @@ function StackNavigator(props) {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        options={HeaderConfig({logout: props.logout, title: 'Browse Jobs'})}
+        options={HeaderConfig({
+          logout: props.logout,
+          title: 'Browse Jobs',
+        })}
         name="Home"
         component={Job}
       />
@@ -121,6 +124,7 @@ const HeaderConfig = ({title, back, logout}) => {
   return {
     title: title,
     headerLeft: (e) => {
+      console.log('Woah', back, e);
       if (!e.canGoBack) return <View></View>;
       if (back)
         return (
