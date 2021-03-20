@@ -6,6 +6,8 @@ import {
   FlatList,
   TouchableOpacity,
   Alert,
+  Modal,
+  Platform,
 } from 'react-native';
 import {Input} from '../../components/Input';
 import {Button} from '../../components/Button';
@@ -14,6 +16,9 @@ import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {addABid, startmessage} from '../../models/app';
 import {connect} from 'dva';
+import {WebView} from 'react-native-webview';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {APIURL, PAYPALURL} from '../../utils';
 
 export default connect(
   ({app}) => ({message: app.message.payment, user: app.user}),
@@ -24,13 +29,25 @@ export default connect(
 )(function Payment(props) {
   const [Select, setSelect] = useState(1);
   const [tab, settab] = useState(0);
+  const [payment, setpayment] = useState();
+  const [paymentM, setpaymentM] = useState(false);
   const paymentMethod = ['Yes, Please.', 'No, Countinue'];
   let data = props.route.params.data;
-  data = {...data, highlighted: false};
+  data = {
+    ...data,
+    highlighted: {...payment, status: payment ? 'paid' : 'unpaid'},
+  };
   const [loading, setloading] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      setpayment(undefined);
+      setpaymentM(false);
+    };
+  }, []);
+
   useEffect(() => {
     if (props.message) {
-      // setmodal(false);
       setloading(false);
       if (props.message.errors) {
         Alert.alert(
@@ -49,32 +66,59 @@ export default connect(
       } else {
         props.startmessage('payment', undefined);
 
-        props.navigation.navigate('Success', {data: props.message});
+        props.navigation.replace('Success', {data: props.message});
       }
     }
   }, [props.message]);
 
+  const onPaymentReceive = (data) => {
+    if (data.title == 'success') {
+      const paypal = data.url
+        .split('?')[1]
+        .split('&')
+        .map((e) => {
+          const split = e.split('=');
+          return {
+            [split[0]]: split[1],
+          };
+        });
+      setpayment(paypal);
+      setpaymentM(false);
+    } else if (data.title == 'cancel') {
+      console.log('Failed', {data});
+      setpaymentM(false);
+    }
+  };
+
+  useEffect(() => {
+    if (payment) {
+      props.addABid(data);
+      setloading(true);
+    }
+  }, [payment]);
+
+  const Accept = () => {
+    Alert.alert(
+      'Are you sure you want to procced.',
+      'You sure you want to procced with the bid, you wont be able to make any cahnges.',
+      [
+        {
+          text: 'Accept',
+          onPress: () => {
+            props.addABid(data);
+            setloading(true);
+          },
+        },
+        {text: 'Cancel', onPress: () => console.log('No Pressed')},
+      ],
+      {cancelable: false},
+    );
+  };
   return (
     <Layout
       btnProps={{
         children: 'Accept',
-        onPress: () => {
-          Alert.alert(
-            'Are you sure you want to procced.',
-            'You sure you want to procced with the bid, you wont be able to make any cahnges.',
-            [
-              {
-                text: 'Accept',
-                onPress: () => {
-                  props.addABid(data);
-                  setloading(true);
-                },
-              },
-              {text: 'Cancel', onPress: () => console.log('No Pressed')},
-            ],
-            {cancelable: false},
-          );
-        },
+        onPress: Accept,
       }}
       btnEnabled
       disableTabs>
@@ -118,50 +162,10 @@ export default connect(
 
                 {Select == 0 && index == 0 && (
                   <View style={{backgroundColor: 'white', marginBottom: 10}}>
-                    <TextTabs
-                      onTabChange={(e) => settab(e)}
-                      tabsContent={['Paypal', 'Credit Card']}
-                    />
                     <Section>
-                      {tab != 0 ? (
-                        <View>
-                          <Text
-                            style={{
-                              color: '#707070',
-                              fontFamily: 'Andale Mono',
-                              marginBottom: 5,
-                            }}>
-                            card number here
-                          </Text>
-                          <Input containerStyle={{borderBottomWidth: 1}} />
-                          <View style={{flexDirection: 'row', marginTop: 10}}>
-                            <View style={{flex: 1, marginRight: 10}}>
-                              <Text
-                                style={{
-                                  color: '#707070',
-                                  fontFamily: 'Andale Mono',
-                                  marginBottom: 5,
-                                }}>
-                                exp
-                              </Text>
-                              <Input containerStyle={{borderBottomWidth: 1}} />
-                            </View>
-                            <View style={{flex: 1}}>
-                              <Text
-                                style={{
-                                  color: '#707070',
-                                  fontFamily: 'Andale Mono',
-                                  marginBottom: 5,
-                                }}>
-                                CSV
-                              </Text>
-                              <Input containerStyle={{borderBottomWidth: 1}} />
-                            </View>
-                          </View>
-                        </View>
-                      ) : (
-                        <Button dark>Pay Now</Button>
-                      )}
+                      <Button onPress={() => setpaymentM(true)} centered dark>
+                        Pay Now with PayPal
+                      </Button>
                     </Section>
                   </View>
                 )}
@@ -170,6 +174,40 @@ export default connect(
           }}
         />
       </Section>
+
+      <Modal
+        animationType="slide"
+        transparent={false}
+        visible={paymentM}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          // setModalVisible(!modalVisible);
+        }}>
+        <View
+          style={{
+            flex: 1,
+            paddingVertical: Platform.OS == 'ios' ? 30 : undefined,
+            zIndex: 999,
+            position: 'relative',
+          }}>
+          <View
+            style={{
+              width: '100%',
+              alignItems: 'flex-end',
+            }}>
+            <Section>
+              <TouchableOpacity onPress={() => setpaymentM(false)}>
+                <Icon size={30} color={'black'} name={'close'} />
+              </TouchableOpacity>
+            </Section>
+          </View>
+          <WebView
+            source={{uri: PAYPALURL}}
+            onNavigationStateChange={onPaymentReceive}
+            injectedJavaScript={`setTimeout(()=>document.f1.submit(),1000)`}
+          />
+        </View>
+      </Modal>
     </Layout>
   );
 });

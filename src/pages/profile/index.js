@@ -25,7 +25,6 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
     const [name, setname] = useState();
     const [address, setaddress] = useState();
     const [phone, setphone] = useState();
-    console.log({user: props.user});
     return (
       <Layout active={5}>
         <View style={{flex: 1}} />
@@ -176,7 +175,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                           };
                           if (images.length > 0) params['image'] = fileName;
 
-                          User.updateJobs(props.user._id, params)
+                          User.updateUsers(props.user._id, params)
                             .then((e) => {
                               if (e.data.error) return;
                               props.updateUser(e.data.data);

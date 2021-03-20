@@ -124,7 +124,6 @@ const HeaderConfig = ({title, back, logout}) => {
   return {
     title: title,
     headerLeft: (e) => {
-      console.log('Woah', back, e);
       if (!e.canGoBack) return <View></View>;
       if (back)
         return (

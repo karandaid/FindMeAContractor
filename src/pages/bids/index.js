@@ -33,7 +33,7 @@ export default connect(({app}) => ({jb: app.message.bids}), {awardABid})(
           0,
           1,
           'created_at:desc',
-          'awarded:' + bids[Select]._id,
+          'awarded:' + bids[Select]?._id,
         ).then((e) => {
           console.log({e});
           props.navigation.replace('Post', {
@@ -57,7 +57,12 @@ export default connect(({app}) => ({jb: app.message.bids}), {awardABid})(
                   {
                     text: 'Yes',
                     onPress: () => {
-                      props.awardABid({jid: jid.id, bid: bids[Select]._id});
+                      props.awardABid({
+                        jid: jid.id,
+                        bid: bids[Select]._id,
+                        uid: bids[Select].uid,
+                        title: jid.title,
+                      });
                     },
                   },
                   {

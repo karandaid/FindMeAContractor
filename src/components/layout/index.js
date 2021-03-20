@@ -1,6 +1,6 @@
 import {connect} from 'dva';
 import React from 'react';
-import {ActivityIndicator, View} from 'react-native';
+import {ActivityIndicator, Platform, View} from 'react-native';
 import {Button} from '../Button';
 import {Tab} from '../Tab';
 
@@ -24,7 +24,14 @@ export const Layout = connect(
         <Tab active={props.active} onTabChange={(e) => console.log(e)}></Tab>
       )}
       {props.btnEnabled && (
-        <Button {...props.btnProps} centered>
+        <Button
+          {...props.btnProps}
+          style={{
+            paddingBottom: Platform.OS == 'ios' ? 20 : undefined,
+            ...props.btnProps.style,
+          }}
+          textStyle={{fontSize: 18}}
+          centered>
           {props.btnProps.children}
         </Button>
       )}

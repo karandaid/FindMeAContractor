@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Text,
   Image,
@@ -20,20 +20,30 @@ import Jobs from '../../service/jobs';
 import {connect} from 'dva';
 import {Rating} from 'react-native-ratings';
 import {useNavigation} from '@react-navigation/native';
+import notification from '../../service/notification';
 
 export default connect(({app}) => ({user: app.user}))(function Post(props) {
   const selfCheck = props.route.params?.self;
   const {item, index} = props.route.params.data;
-  console.log({item});
   const awarded = props.route.params.awarded;
-  const [select, setselect] = useState(item.images[0]);
+  const [select, setselect] = useState(item?.images[0]);
   const [loading, setloading] = useState(false);
   const [modal, setmodal] = useState(false);
+
   const deleteJOB = (id) => {
     Jobs.deleteAJob(id, false).then((e) => {
       if (e.data.contact.deletedCount > 0) {
         setloading(false);
-
+        notification.sendCustomNotification({
+          notification: {
+            title: 'Alert',
+            body:
+              'The job titled "' +
+              item.title +
+              '", has been deleted by the owner, and so is your bid.',
+          },
+          topic: 'jid.' + item.jid,
+        });
         Alert.alert('Success', 'Deleted Confirmed', [
           {
             text: 'Go To Home',
@@ -45,7 +55,6 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
       }
     });
   };
-
   const deleteAPost = () => {
     // get id
     setloading(true);
@@ -58,25 +67,7 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
         {
           text: 'Yes',
           onPress: () => {
-            // Delete Here
-            // Bids.getBids(0, 1, 'created_at:desc', 'jid:' + id).then((e) => {
-            //   if (e.data.error) return;
-
-            //   const data = e.data.data;
-
-            //   if (data.length > 0) {
-            //     Bids.deleteABid(id, true).then((x) => {
-            //       if (x.data.erorr) {
-            //         setloading(false);
-            //       } else {
-            //         // delete the job.
-            //         deleteJOB(id);
-            //       }
-            //     });
-            //   } else {
             deleteJOB(id);
-            //   }
-            // });
           },
         },
         {
@@ -91,7 +82,7 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
   const precheckBTN = () => {
     return item.status == 'active' || item.status == 'awarded';
   };
-  console.log('**', item.status != 'completed' || item.status != 'closed');
+
   return (
     <Layout
       loading={loading}
@@ -107,6 +98,7 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
           if (awarded) {
             props.navigation.navigate('Chat', {
               id: item._id,
+              uid: item.uid,
             });
           } else {
             if (!selfCheck) {
@@ -116,17 +108,19 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
                 'created_at:desc',
                 `jid:${item._id},uid:${props.user._id}`,
               ).then(({data}) => {
-                if (data.data.length !== 0) {
-                  Alert.alert('Sorry', 'You already have place a bid.');
-                } else {
-                  props.navigation.replace('Bid', {
-                    id: item._id,
-                  });
-                }
+                // if (data.data.length !== 0) {
+                //   Alert.alert('Sorry', 'You already have place a bid.');
+                // } else {
+                props.navigation.replace('Bid', {
+                  id: item._id,
+                  uid: item.uid,
+                });
+                // }
               });
             } else {
               props.navigation.replace('Bids', {
                 id: item._id,
+                title: item.title,
               });
             }
           }
@@ -271,6 +265,17 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
                         Jobs.updateJobs(item._id, {
                           status: 'closed',
                         }).then((e) => console.log(e.data));
+                        notification.sendCustomNotification({
+                          notification: {
+                            title: 'Alert',
+                            body:
+                              'The job titled "' +
+                              item.title +
+                              '", has been closed by the owner.',
+                          },
+                          topic: 'jid.' + item.jid,
+                        });
+
                         props.navigation.replace('MyProjects');
                       }
                     },
@@ -368,6 +373,12 @@ const Mod = ({modal, setmodal, item}) => {
 
               Bids.updateBids(item.awarded, {
                 status: 'completed',
+              });
+              notification.sendNotification(item.awardedBy, {
+                notification: {
+                  title: 'Job Completed.',
+                  body: `The Job "${item.title}" has been marked Completed by the owner.`,
+                },
               });
 
               navigation.replace('MyProjects');

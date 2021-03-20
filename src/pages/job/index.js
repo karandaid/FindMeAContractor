@@ -30,6 +30,8 @@ export default connect(
   useEffect(() => {
     (async () => {
       const loc = await getData('@location');
+      console.log({loc});
+      console.log(loc.address.city);
       setcity(loc.address.city);
     })();
 

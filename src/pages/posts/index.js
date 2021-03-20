@@ -20,10 +20,17 @@ import {connect} from 'dva';
 import {addAJob, startmessage} from '../../models/app';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {Storage} from 'aws-amplify';
-import {APIURL, getData, RANDOMWORDS, getCountryName} from '../../utils';
+import {
+  APIURL,
+  getData,
+  RANDOMWORDS,
+  getCountryName,
+  getCurrentLocation,
+} from '../../utils';
 import {EmptyListMessage} from '../job';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Textarea from 'react-native-textarea';
 
 export default connect(
   ({app}) => ({categories: app.categories, message: app.message.post}),
@@ -169,7 +176,12 @@ export default connect(
                 }}>
                 Title
               </Text>
-              <Input inputProps={{onChangeText: (e) => settext(e)}} />
+              <Input
+                inputProps={{
+                  onChangeText: (e) => settext(e),
+                  placeholder: 'Add a title',
+                }}
+              />
             </View>
             <View style={{marginBottom: 10}}>
               <Text
@@ -193,7 +205,7 @@ export default connect(
                   alignItems: 'center',
                 }}
                 textStyle={{
-                  fontSize: 20,
+                  fontSize: 18,
                   fontFamily: 'Andale Mono',
                 }}
                 renderButtonText={(e) => <Text>{e}</Text>}
@@ -214,11 +226,11 @@ export default connect(
                 style={{
                   color: '#707070',
                   fontFamily: 'Andale Mono',
-                  marginBottom: 5,
+                  marginVertical: 5,
                 }}>
                 Description
               </Text>
-              <Input
+              {/* <Input
                 onChangeText={(e) => setdescription(e)}
                 containerStyle={{height: 200, alignItems: 'flex-start'}}
                 inputProps={{
@@ -226,6 +238,16 @@ export default connect(
                   numberOfLines: 4,
                   onChangeText: (e) => setdescription(e),
                 }}
+              /> */}
+              <Textarea
+                containerStyle={{backgroundColor: 'white'}}
+                style={{padding: 10, fontSize: 16, fontFamily: 'Andale Mono'}}
+                onChangeText={(e) => setdescription(e)}
+                // defaultValue={this.state.text}
+                maxLength={500}
+                placeholder={'Add a appropriate description.'}
+                placeholderTextColor={'#c7c7c7'}
+                underlineColorAndroid={'transparent'}
               />
             </View>
             <View style={{height: 0}} />
@@ -308,8 +330,12 @@ export const LocationCom = ({onSelect, locationmodal, setlocationmodal}) => {
       </View>
       <Button
         onPress={async () => {
-          const loc = await getData('@location');
-          onSelect(loc.address.city);
+          getCurrentLocation()
+            .then((e) => {
+              console.log({e});
+              onSelect(e.address.city);
+            })
+            .catch(console.log);
         }}
         centered
         dark>
