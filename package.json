@@ -39,6 +39,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-image-picker": "^3.2.1",
     "react-native-modal-dropdown": "^1.0.0",
+    "react-native-push-notification-popup": "^1.6.0",
     "react-native-ratings": "^7.4.0",
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",

@@ -92,13 +92,10 @@ export default {
           },
         ]);
       }
-      // checks
-      yield put(stopLoading('layout'));
       try {
         const getUser = yield User.getUser(sub);
-        console.log({getUser});
         if (getUser.data.status == 'failed') {
-          console.log('Creating a new user');
+          console.log('Unable to find the user, creating....');
           let FCMToken = yield call(getData, '@FCM');
           if (FCMToken) {
             yield call(RegisterDeviceFCM);
@@ -116,6 +113,7 @@ export default {
           yield put({type: 'setState', user: addUser.data.data});
           yield put({type: 'getJobs'});
         } else {
+          console.log('User Fount, checking');
           const user = getUser.data.data[0];
           let FCMToken = yield call(getData, '@FCM');
           if (!FCMToken) {
@@ -124,9 +122,10 @@ export default {
             yield call(storeData, FCMToken, '@FCM');
           }
           if (user.FCMToken != FCMToken) {
+            // FCM Update.....
             User.updateUsers(user._id, {FCMToken});
           }
-
+          //* Checking if the user got Blocked or deactivated by admins.
           if (user.status == 'deactivated' || user.status == 'blocked') {
             Alert.alert('No Entry for you.', 'You are being Blocked.', [
               {
@@ -139,10 +138,12 @@ export default {
           } else {
             yield put({type: 'setState', user});
             yield put({type: 'getCategories'});
+            yield put(stopLoading('layout'));
           }
         }
       } catch (error) {
         console.log({error});
+        yield put(stopLoading('layout'));
       }
       yield put(stopLoading('layout'));
     },
@@ -319,16 +320,16 @@ export default {
       getCurrentLocation();
       await requestUserPermission();
       const a = await messaging().getAPNSToken();
-      console.log({a});
-      const unsubscribe = messaging().onMessage(async (remoteMessage) => {
-        console.log('HERE');
-        Alert.alert(
-          'Notification : ' + remoteMessage.notification.title,
-          remoteMessage.notification.body,
-        );
-      });
+
+      // const unsubscribe = messaging().onMessage(async (remoteMessage) => {
+      //   console.log('HERE');
+      //   Alert.alert(
+      //     'Notification : ' + remoteMessage.notification.title,
+      //     remoteMessage.notification.body,
+      //   );
+      // });
       return () => {
-        unsubscribe();
+        // unsubscribe();
         hub();
       };
     },

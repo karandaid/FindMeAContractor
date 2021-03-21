@@ -4,14 +4,16 @@ import Geolocation, {
   requestAuthorization,
 } from 'react-native-geolocation-service';
 
-export const APIURL =
-  'https://elfnovrye5.execute-api.eu-west-2.amazonaws.com/dev/api/';
-export const PAYPALURL =
-  'https://elfnovrye5.execute-api.eu-west-2.amazonaws.com/dev/paypal';
-// export const APIURL = 'http://localhost:8080/api/';
-// export const APIURL = 'http://192.168.1.105:8080/api/';
+/*** CONSTANTS and data sources. */
+/**********************************************************/
+const url = 'https://elfnovrye5.execute-api.eu-west-2.amazonaws.com/dev';
+export const APIURL = `${url}/api/`;
+export const PAYPALURL = `${url}/paypal`;
 export const S3BUCKETURL =
   'https://findmeacontractor5f0bcc14d932483aabc269104b955010736-dev.s3.eu-west-2.amazonaws.com/public/';
+export const GEOCODEAPIKEY = 'AIzaSyDFu9V23Y6Y8gfARAQYrENTY4koE49yeIc';
+/**********************************************************/
+
 export const FORMATE_DATE = function (date) {
   date = new Date(date);
   return date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
@@ -27,6 +29,7 @@ export function RANDOMWORDS(length) {
   }
   return result;
 }
+
 export const LIMIT = 2;
 
 export const storeData = async (value, key) => {
@@ -47,18 +50,19 @@ export const getData = async (key) => {
     // error reading value
   }
 };
+
 export function capitalizeString(str) {
   var firstLetter = str.substr(0, 1);
   return firstLetter.toUpperCase() + str.substr(1);
 }
+
 export const getCurrentLocation = async () => {
   return new Promise((res, rej) => {
     Geolocation.getCurrentPosition(
       async (position) => {
         axios
           .get(
-            // `https://us1.locationiq.com/v1/reverse.php?key=pk.a8f720dfd5eaefeec41bfbb7f41d62c6&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`,
-            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=AIzaSyDFu9V23Y6Y8gfARAQYrENTY4koE49yeIc`,
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${GEOCODEAPIKEY}`,
           )
           .then(async ({data}) => {
             const add = data.results[0].address_components;

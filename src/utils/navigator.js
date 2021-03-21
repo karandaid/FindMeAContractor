@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, ref, useRef} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../pages/home';
@@ -29,6 +29,8 @@ import {Authenticator} from 'aws-amplify-react-native/dist/Auth';
 import theme from './theme';
 import {logout} from '../models/app';
 import {connect} from 'dva';
+import NotificationPopup from 'react-native-push-notification-popup';
+import messaging from '@react-native-firebase/messaging';
 
 const Stack = createStackNavigator();
 
@@ -110,12 +112,32 @@ function StackNavigator(props) {
 }
 
 const MainNavigator = (props) => {
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async (remoteMessage) => {
+      ref.current.show({
+        onPress: function () {
+          console.log('Pressed');
+        },
+        appIconSource: require('../assets/images/image.png'),
+        appTitle: 'Find Me a Contractor',
+        timeText: 'Now',
+        title: remoteMessage.notification.title,
+        body: remoteMessage.notification.body,
+        slideOutTime: 5000,
+      });
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+  const ref = useRef();
   return (
     <>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
       <NavigationContainer>
         <StackNavigator logout={props.logout} />
       </NavigationContainer>
+      <NotificationPopup ref={ref} />
     </>
   );
 };
@@ -231,26 +253,12 @@ const signUpConfig = {
       required: true,
       type: 'string',
     },
-
-    // {
-    //   label: 'Username',
-    //   key: 'username',
-    //   required: true,
-    //   type: 'string',
-
-    // },
   ],
 };
 
 const MyTheme = Object.assign({}, AmplifyTheme, {
   ...theme,
 });
-
-// const App = () => {
-//   return (
-//     <Authenticator signUpConfig={signUpConfig} theme={MyTheme}></Authenticator>
-//   );
-// };
 
 export default withAuthenticator(
   connect(() => ({}), {logout})(MainNavigator),

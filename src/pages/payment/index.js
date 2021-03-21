@@ -9,9 +9,7 @@ import {
   Modal,
   Platform,
 } from 'react-native';
-import {Input} from '../../components/Input';
 import {Button} from '../../components/Button';
-import {TextTabs} from '../../components/Tab';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {addABid, startmessage} from '../../models/app';
@@ -202,7 +200,49 @@ export default connect(
             </Section>
           </View>
           <WebView
-            source={{uri: PAYPALURL}}
+            source={{
+              html: `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body style="height: 100vh">
+    <div
+      style="
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        display: flex;
+        height: 100%;
+      "
+    >
+      <!-- <h1>Paypal</h1> -->
+      <form name="f1" style="display:none" action="${PAYPALURL}/pay">
+        <button type="submit">Pay</button>
+      </form>
+      <lottie-player
+        src="https://assets4.lottiefiles.com/packages/lf20_BzUyid.json"
+        background="transparent"
+        speed="0.6"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+      setTimeout(() => {
+        document.f1.submit();
+      }, 1000);
+    </script>
+  </body>
+</html>
+`,
+            }}
+            // source={{uri: PAYPALURL}}
             onNavigationStateChange={onPaymentReceive}
             injectedJavaScript={`setTimeout(()=>document.f1.submit(),1000)`}
           />
