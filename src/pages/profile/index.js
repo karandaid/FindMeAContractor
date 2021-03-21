@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   Alert,
   ScrollView,
+  Modal,
+  ActivityIndicator,
 } from 'react-native';
 import {Input} from '../../components/Input';
 import {Button} from '../../components/Button';
@@ -25,6 +27,8 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
     const [name, setname] = useState();
     const [address, setaddress] = useState();
     const [phone, setphone] = useState();
+    const [loading, setloading] = useState(false);
+    console.log({loading});
     return (
       <Layout active={5}>
         <View style={{flex: 1}} />
@@ -49,8 +53,10 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <TouchableOpacity
                 onPress={() =>
                   launchImageLibrary({}, async (e) => {
-                    const img = [...images, e];
-                    setimages([...img]);
+                    if (!e.didCancel) {
+                      const img = [...images, e];
+                      if (e.length > 0) setimages([...img]);
+                    }
                   })
                 }
                 style={{
@@ -156,6 +162,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                     {
                       text: 'Confirmed',
                       onPress: async () => {
+                        setloading(true);
                         try {
                           const e = images[0];
                           const fileName =
@@ -177,6 +184,8 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
 
                           User.updateUsers(props.user._id, params)
                             .then((e) => {
+                              setloading(false);
+
                               if (e.data.error) return;
                               props.updateUser(e.data.data);
                               Alert.alert(
@@ -192,6 +201,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                               );
                             })
                             .catch((e) => console.log(e));
+                          setloading(false);
                         } catch (err) {
                           console.log('Error uploading file:', err);
                           Alert.alert(
@@ -205,6 +215,8 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                             ],
                             {cancelable: false},
                           );
+                          setloading(false);
+
                           return;
                         }
                       },
@@ -220,6 +232,12 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
             </Button>
           </Section>
         </ScrollView>
+        <Modal visible={loading} transparent={true}>
+          <View
+            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <ActivityIndicator />
+          </View>
+        </Modal>
       </Layout>
     );
   },

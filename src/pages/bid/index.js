@@ -18,7 +18,7 @@ export default function Bid(props) {
         onPress: () => {
           if (
             description &&
-            description.length > 10 &&
+            description.length > 100 &&
             cost &&
             parseInt(cost)
           ) {

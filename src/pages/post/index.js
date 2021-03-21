@@ -108,14 +108,14 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
                 'created_at:desc',
                 `jid:${item._id},uid:${props.user._id}`,
               ).then(({data}) => {
-                // if (data.data.length !== 0) {
-                //   Alert.alert('Sorry', 'You already have place a bid.');
-                // } else {
-                props.navigation.replace('Bid', {
-                  id: item._id,
-                  uid: item.uid,
-                });
-                // }
+                if (data.data.length !== 0) {
+                  Alert.alert('Sorry', 'You already have place a bid.');
+                } else {
+                  props.navigation.replace('Bid', {
+                    id: item._id,
+                    uid: item.uid,
+                  });
+                }
               });
             } else {
               props.navigation.replace('Bids', {

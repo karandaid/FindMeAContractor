@@ -47,39 +47,41 @@ export default connect(
   const [city, setcity] = useState();
 
   const create = async () => {
-    if (text && description && category && images.length > 0) {
+    if (text && description && category) {
       // Upload Images to the DB
       const img = [];
-      for (let i = 0; i < images.length; i++) {
-        const e = images[i];
-        try {
-          const fileName = 'jobs/' + RANDOMWORDS(4) + '_' + e.fileName;
-          const response = await fetch(e.uri);
-          const blob = await response.blob();
-          const a = await Storage.put(fileName, blob, {
-            contentType: e.type, // contentType is optional
-          });
-          img.push(fileName);
-        } catch (err) {
-          Alert.alert(
-            'Error',
-            err.message,
-            [{text: 'OK', onPress: () => console.log('OK Pressed')}],
-            {cancelable: false},
-          );
-          return;
+      if (images.length > 0) {
+        for (let i = 0; i < images.length; i++) {
+          const e = images[i];
+          try {
+            const fileName = 'jobs/' + RANDOMWORDS(4) + '_' + e.fileName;
+            const response = await fetch(e.uri);
+            const blob = await response.blob();
+            const a = await Storage.put(fileName, blob, {
+              contentType: e.type, // contentType is optional
+            });
+            img.push(fileName);
+          } catch (err) {
+            Alert.alert(
+              'Error',
+              err.message,
+              [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+              {cancelable: false},
+            );
+            return;
+          }
         }
       }
-
       // Create a JOB with the images reference
-      props.addAJob({
+      const JOB = {
         title: text,
         description,
         category,
         city,
         price,
-        images: img,
-      });
+      };
+      if (img.length > 0) JOB.images = img;
+      props.addAJob(JOB);
     } else {
       Alert.alert(
         'Error',
@@ -141,6 +143,11 @@ export default connect(
         children: 'Post',
         onPress: () => {
           if (text && description && category && city) {
+            if (description.length < 100)
+              return Alert.alert(
+                'Error',
+                'Make sure to entered at least 100 character or more as the description.',
+              );
             setmodal(true);
           } else {
             Alert.alert(
@@ -496,7 +503,7 @@ const ImageSection = (props) => {
         onPress={async () => {
           launchImageLibrary({}, async (e) => {
             const img = [...images, e];
-            setimages([...img]);
+            if (e.length > 0) setimages([...img]);
           });
         }}
         centered

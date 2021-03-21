@@ -51,14 +51,14 @@ export function JobCard(props) {
                 fontSize: 12,
                 color: 'green',
               }}>
-              status :{item.status}
+              status: {item.status}
             </Text>
             <Text
               style={{
                 fontFamily: 'Andale Mono',
                 fontSize: 12,
               }}>
-              location :{item.city}
+              location: {item.city}
             </Text>
           </View>
           <View
@@ -109,7 +109,11 @@ export function JobCard(props) {
             marginLeft: 10,
             height: '100%',
           }}
-          source={{uri: S3BUCKETURL + item.images[0]}}
+          source={
+            item.images.length == 0
+              ? require('../../assets/images/image.png')
+              : {uri: S3BUCKETURL + item.images[0]}
+          }
         />
       </View>
     </TouchableOpacity>

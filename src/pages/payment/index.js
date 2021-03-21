@@ -96,6 +96,7 @@ export default connect(
   }, [payment]);
 
   const Accept = () => {
+    if (Select == 0 && !payment) return Alert.alert('Woah! You cant do that.');
     Alert.alert(
       'Are you sure you want to procced.',
       'You sure you want to procced with the bid, you wont be able to make any cahnges.',
