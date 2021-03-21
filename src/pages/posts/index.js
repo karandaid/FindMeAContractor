@@ -20,10 +20,17 @@ import {connect} from 'dva';
 import {addAJob, startmessage} from '../../models/app';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {Storage} from 'aws-amplify';
-import {APIURL, getData, RANDOMWORDS, getCountryName} from '../../utils';
+import {
+  APIURL,
+  getData,
+  RANDOMWORDS,
+  getCountryName,
+  getCurrentLocation,
+} from '../../utils';
 import {EmptyListMessage} from '../job';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Textarea from 'react-native-textarea';
 
 export default connect(
   ({app}) => ({categories: app.categories, message: app.message.post}),
@@ -40,39 +47,41 @@ export default connect(
   const [city, setcity] = useState();
 
   const create = async () => {
-    if (text && description && category && images.length > 0) {
+    if (text && description && category) {
       // Upload Images to the DB
       const img = [];
-      for (let i = 0; i < images.length; i++) {
-        const e = images[i];
-        try {
-          const fileName = 'jobs/' + RANDOMWORDS(4) + '_' + e.fileName;
-          const response = await fetch(e.uri);
-          const blob = await response.blob();
-          const a = await Storage.put(fileName, blob, {
-            contentType: e.type, // contentType is optional
-          });
-          img.push(fileName);
-        } catch (err) {
-          Alert.alert(
-            'Error',
-            err.message,
-            [{text: 'OK', onPress: () => console.log('OK Pressed')}],
-            {cancelable: false},
-          );
-          return;
+      if (images.length > 0) {
+        for (let i = 0; i < images.length; i++) {
+          const e = images[i];
+          try {
+            const fileName = 'jobs/' + RANDOMWORDS(4) + '_' + e.fileName;
+            const response = await fetch(e.uri);
+            const blob = await response.blob();
+            const a = await Storage.put(fileName, blob, {
+              contentType: e.type, // contentType is optional
+            });
+            img.push(fileName);
+          } catch (err) {
+            Alert.alert(
+              'Error',
+              err.message,
+              [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+              {cancelable: false},
+            );
+            return;
+          }
         }
       }
-
       // Create a JOB with the images reference
-      props.addAJob({
+      const JOB = {
         title: text,
         description,
         category,
         city,
         price,
-        images: img,
-      });
+      };
+      if (img.length > 0) JOB.images = img;
+      props.addAJob(JOB);
     } else {
       Alert.alert(
         'Error',
@@ -134,6 +143,11 @@ export default connect(
         children: 'Post',
         onPress: () => {
           if (text && description && category && city) {
+            if (description.length < 100)
+              return Alert.alert(
+                'Error',
+                'Make sure to entered at least 100 character or more as the description.',
+              );
             setmodal(true);
           } else {
             Alert.alert(
@@ -169,7 +183,12 @@ export default connect(
                 }}>
                 Title
               </Text>
-              <Input inputProps={{onChangeText: (e) => settext(e)}} />
+              <Input
+                inputProps={{
+                  onChangeText: (e) => settext(e),
+                  placeholder: 'Add a title',
+                }}
+              />
             </View>
             <View style={{marginBottom: 10}}>
               <Text
@@ -193,7 +212,7 @@ export default connect(
                   alignItems: 'center',
                 }}
                 textStyle={{
-                  fontSize: 20,
+                  fontSize: 18,
                   fontFamily: 'Andale Mono',
                 }}
                 renderButtonText={(e) => <Text>{e}</Text>}
@@ -214,11 +233,11 @@ export default connect(
                 style={{
                   color: '#707070',
                   fontFamily: 'Andale Mono',
-                  marginBottom: 5,
+                  marginVertical: 5,
                 }}>
                 Description
               </Text>
-              <Input
+              {/* <Input
                 onChangeText={(e) => setdescription(e)}
                 containerStyle={{height: 200, alignItems: 'flex-start'}}
                 inputProps={{
@@ -226,6 +245,16 @@ export default connect(
                   numberOfLines: 4,
                   onChangeText: (e) => setdescription(e),
                 }}
+              /> */}
+              <Textarea
+                containerStyle={{backgroundColor: 'white'}}
+                style={{padding: 10, fontSize: 16, fontFamily: 'Andale Mono'}}
+                onChangeText={(e) => setdescription(e)}
+                // defaultValue={this.state.text}
+                maxLength={500}
+                placeholder={'Add a appropriate description.'}
+                placeholderTextColor={'#c7c7c7'}
+                underlineColorAndroid={'transparent'}
               />
             </View>
             <View style={{height: 0}} />
@@ -308,8 +337,12 @@ export const LocationCom = ({onSelect, locationmodal, setlocationmodal}) => {
       </View>
       <Button
         onPress={async () => {
-          const loc = await getData('@location');
-          onSelect(loc.address.city);
+          getCurrentLocation()
+            .then((e) => {
+              console.log({e});
+              onSelect(e.address.city);
+            })
+            .catch(console.log);
         }}
         centered
         dark>
@@ -470,7 +503,7 @@ const ImageSection = (props) => {
         onPress={async () => {
           launchImageLibrary({}, async (e) => {
             const img = [...images, e];
-            setimages([...img]);
+            if (e.length > 0) setimages([...img]);
           });
         }}
         centered

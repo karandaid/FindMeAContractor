@@ -1,0 +1,888 @@
+> learn-starter@0.1.0 build C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web
+> next build
+
+Browserslist: caniuse-lite is outdated. Please run:
+npx browserslist@latest --update-db
+Loaded env from C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.env.local
+info  - Creating an optimized production build  
+info  - Compiled successfully
+info  - Collecting page data  
+[   =] info  - Generating static pages (0/45)propsss:  {}
+[====] info  - Generating static pages (0/45){ params: { slug: 'mamas-papas' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:3371:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:1292:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+[=== ] info  - Generating static pages (0/45)pages/player/[slug]
+{ path: '/player/[slug]' }
+{ params: { slug: 'aecb' } }
+[==  ] info  - Generating static pages (0/45){
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:3371:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:1292:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/player/[slug]
+{ path: '/player/[slug]' }
+[==  ] info  - Generating static pages (0/45){ params: { slug: 'DominicGothard' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3636:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[=== ] info  - Generating static pages (0/45){ params: { slug: 'RubyBarve' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3636:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[ ===] info  - Generating static pages (0/45){ params: { slug: 'RossLyndon' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3636:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+{ params: { slug: 'RossMaclean' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3636:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[  ==] info  - Generating static pages (0/45){ params: { slug: 'SamiIqbal' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3636:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[=== ] info  - Generating static pages (0/45){ params: { slug: 'omo-comfort' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+[ ===] info  - Generating static pages (0/45)pages/team/[slug]
+{ path: '/team/[slug]' }
+{ params: { slug: 'emirates' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[  ==] info  - Generating static pages (0/45){ params: { slug: 'tresemme' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[   =] info  - Generating static pages (0/45){ params: { slug: 'rexona' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[    ] info  - Generating static pages (0/45){ params: { slug: 'dpworld' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[=   ] info  - Generating static pages (0/45){ params: { slug: 'honda' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:3371:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:1292:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+[==  ] info  - Generating static pages (0/45)pages/player/[slug]
+{ path: '/player/[slug]' }
+{ params: { slug: 'unicef' } }
+
+Error occurred prerendering page "/en/player/omo-comfort". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Player (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:4929:31)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:3371:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:1292:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/player/[slug]
+{ path: '/player/[slug]' }
+{ params: { slug: 'intro' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:5018:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+
+Error occurred prerendering page "/en/player/emirates". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Player (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:4929:31)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+[=== ] info  - Generating static pages (0/45){ params: { slug: 'strategy' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\services\\[slug].js:942:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[ ===] info  - Generating static pages (0/45)
+Error occurred prerendering page "/en/player/tresemme". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Player (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:4929:31)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'media-and-measurement' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\services\\[slug].js:942:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[  ==] info  - Generating static pages (11/45)
+Error occurred prerendering page "/en/player/rexona". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Player (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:4929:31)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'amplification' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\services\\[slug].js:942:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+
+Error occurred prerendering page "/en/player/dpworld". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Player (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:4929:31)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+[   =] info  - Generating static pages (11/45){ params: { slug: 'community' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\services\\[slug].js:942:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[==  ] info  - Generating static pages (11/45)
+Error occurred prerendering page "/en/services/strategy". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\services\[slug].js:802:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'assessment-and-consultation' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\services\\[slug].js:942:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+
+Error occurred prerendering page "/en/player/intro". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Player (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:4929:31)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+[=== ] info  - Generating static pages (11/45)
+Error occurred prerendering page "/en/services/media-and-measurement". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\services\[slug].js:802:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'content-and-design' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\services\\[slug].js:942:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+{ params: { slug: 'website-copywriting' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\[slug].js:1291:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[ ===] info  - Generating static pages (11/45)
+Error occurred prerendering page "/en/services/amplification". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\services\[slug].js:802:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'translation-and-arabic--copywriting' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\[slug].js:1291:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[  ==] info  - Generating static pages (11/45)
+Error occurred prerendering page "/en/services/community". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\services\[slug].js:802:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'graphic-and-motion-designing' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\[slug].js:1291:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+[   =] info  - Generating static pages (11/45)pages/team/[slug]
+{ path: '/team/[slug]' }
+[=   ] info  - Generating static pages (11/45)
+Error occurred prerendering page "/en/services/assessment-and-consultation". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\services\[slug].js:802:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'video-and-photography' } }
+[    ] info  - Generating static pages (11/45){
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\[slug].js:1291:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[=   ] info  - Generating static pages (11/45)
+Error occurred prerendering page "/en/services/content-and-design". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\services\[slug].js:802:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'digital-media-advertising' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\[slug].js:1291:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[==  ] info  - Generating static pages (11/45)
+Error occurred prerendering page "/en/website-copywriting". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\[slug].js:1151:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'pay-per-click' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\[slug].js:1291:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+
+Error occurred prerendering page "/en/translation-and-arabic--copywriting". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\[slug].js:1151:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: { slug: 'app-store-optimization' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\[slug].js:1291:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[ ===] info  - Generating static pages (22/45)propsss:  {}
+propsss:  {}
+[  ==] info  - Generating static pages (22/45)
+Error occurred prerendering page "/en/graphic-and-motion-designing". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\[slug].js:1151:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+[   =] info  - Generating static pages (22/45){ params: undefined }
+
+Error occurred prerendering page "/ar/about-us". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3176:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3175:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:1171:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\about-us.js:5189:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\about-us.js:5189:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+{ params: undefined }
+
+Error occurred prerendering page "/en/case-studies". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3176:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3175:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:1171:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\case-studies.js:401:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\case-studies.js:401:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[    ] info  - Generating static pages (22/45)
+Error occurred prerendering page "/ar/case-studies". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3176:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3175:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:1171:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\case-studies.js:401:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+{ params: { slug: 'search-engine-optimization' } }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:3371:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:1292:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\[slug].js:1291:79)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/player/[slug]
+{ path: '/player/[slug]' }
+{ params: undefined }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\case-studies.js:401:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+{ params: undefined }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\services.js:3347:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+[   =] info  - Generating static pages (22/45)
+Error occurred prerendering page "/en/services". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3176:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3175:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:1171:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\services.js:3347:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+{ params: undefined }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\services.js:3347:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+
+Error occurred prerendering page "/ar/services". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3176:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3175:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:1171:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\services.js:3347:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+[  ==] info  - Generating static pages (33/45){ params: undefined }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\index.js:2545:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+
+Error occurred prerendering page "/en". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3176:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3175:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:1171:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\index.js:2545:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+pages/team/[slug]
+{ path: '/team/[slug]' }
+{ params: undefined }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:3371:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:1292:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\about-us.js:5189:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/player/[slug]
+{ path: '/player/[slug]' }
+
+Error occurred prerendering page "/en/about-us". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:3382:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:3381:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:1292:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\about-us.js:5189:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+[ ===] info  - Generating static pages (33/45){ params: undefined }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\index.js:2545:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+
+Error occurred prerendering page "/ar". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3176:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3175:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:1171:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\index.js:2545:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+[=   ] info  - Generating static pages (33/45)
+Error occurred prerendering page "/en/video-and-photography". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\[slug].js:1151:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+[    ] info  - Generating static pages (33/45){ params: undefined }
+[=   ] info  - Generating static pages (33/45){
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:3371:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\player\\[slug].js:1292:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\contact-us.js:401:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/player/[slug]
+{ path: '/player/[slug]' }
+
+Error occurred prerendering page "/en/contact-us". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:3382:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:3381:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\player\[slug].js:1292:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\contact-us.js:401:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+
+Error occurred prerendering page "/en/digital-media-advertising". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\[slug].js:1151:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+[==  ] info  - Generating static pages (33/45)
+Error occurred prerendering page "/en/pay-per-click". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\[slug].js:1151:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+
+Error occurred prerendering page "/en/app-store-optimization". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\[slug].js:1151:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+{ params: undefined }
+{
+  stackTraceFrames: [
+    '    at getFileRelativePath (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:3165:35)',
+    '    at Object.get_static_props (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\team\\[slug].js:1171:67)',
+    '    at getStaticProps (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\.next\\server\\pages\\contact-us.js:401:40)',
+    '    at renderToHTML (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\next-server\\server\\render.js:28:115)',       
+    '    at async Object.exportPage [as default] (C:\\Users\\ahmad\\Documents\\Atompoint\\Github\\wwt-portfolio-web\\node_modules\\next\\dist\\export\\worker.js:26:6)'
+  ]
+}
+pages/team/[slug]
+{ path: '/team/[slug]' }
+
+Error occurred prerendering page "/ar/contact-us". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property 'slug' of undefined
+    at C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3176:18
+    at String.replace (<anonymous>)
+    at getFileRelativePath (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:3175:15)
+    at Object.get_static_props (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\team\[slug].js:1171:67)
+    at getStaticProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\contact-us.js:401:40)
+    at renderToHTML (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:28:115)
+    at async Object.exportPage [as default] (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\worker.js:26:6)
+[  ==] info  - Generating static pages (33/45)
+Error occurred prerendering page "/en/search-engine-optimization". Read more: https://err.sh/next.js/prerender-error
+TypeError: Cannot read property '0' of undefined
+    at Service (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\[slug].js:1151:28)
+    at d (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:33:498)
+    at bb (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:36:16)
+    at a.b.render (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:42:43)
+    at a.b.read (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:41:83)
+    at exports.renderToString (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\react-dom\cjs\react-dom-server.node.production.min.js:52:138) 
+    at Object.renderPage (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\server\render.js:54:851)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:330:19)
+    at Function.getInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\.next\server\pages\_document.js:139:85)
+    at loadGetInitialProps (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\next-server\lib\utils.js:5:101)
+info  - Generating static pages (45/45)
+
+> Build error occurred
+Error: Export encountered errors on following paths:
+        /ar
+        /ar/about-us
+        /ar/case-studies
+        /ar/contact-us
+        /ar/services
+        /en
+        /en/about-us
+        /en/app-store-optimization
+        /en/case-studies
+        /en/contact-us
+        /en/digital-media-advertising
+        /en/graphic-and-motion-designing
+        /en/pay-per-click
+        /en/player/dpworld
+        /en/player/emirates
+        /en/player/intro
+        /en/player/omo-comfort
+        /en/player/rexona
+        /en/player/tresemme
+        /en/search-engine-optimization
+        /en/services
+        /en/services/amplification
+        /en/services/assessment-and-consultation
+        /en/services/community
+        /en/services/content-and-design
+        /en/services/media-and-measurement
+        /en/services/strategy
+        /en/translation-and-arabic--copywriting
+        /en/video-and-photography
+        /en/website-copywriting
+    at exportApp (C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\export\index.js:30:1103)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\build\index.js:39:69
+    at async C:\Users\ahmad\Documents\Atompoint\Github\wwt-portfolio-web\node_modules\next\dist\build\tracer.js:1:525
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! learn-starter@0.1.0 build: `next build`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the learn-starter@0.1.0 build script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\ahmad\AppData\Roaming\npm-cache\_logs\2021-02-17T11_08_16_246Z-debug.log

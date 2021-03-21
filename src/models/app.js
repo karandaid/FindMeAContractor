@@ -1,16 +1,22 @@
 import {CognitoIdToken} from 'amazon-cognito-identity-js';
-import {Auth} from 'aws-amplify';
+import {Auth, Hub} from 'aws-amplify';
 import Jobs from '../service/jobs';
 import Categories from '../service/categories';
 import User from '../service/user';
 import Bids from '../service/bid';
 import {Alert, PermissionsAndroid, Platform} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {storeData, getData} from '../utils/index';
+import {
+  storeData,
+  getData,
+  getCurrentLocation,
+  capitalizeString,
+} from '../utils/index';
 import Geolocation, {
   requestAuthorization,
 } from 'react-native-geolocation-service';
-import axios from 'axios';
+import messaging from '@react-native-firebase/messaging';
+import Notification from '../service/notification';
 
 const namespace = 'app';
 export const authenticated = () => {
@@ -72,15 +78,11 @@ export default {
     *authenticated(_, {put, select, call}) {
       yield put(startLoading('layout'));
       const user = yield Auth.currentUserInfo();
-      const u = yield select(({app}) => app.user);
-      if (u) {
-        yield put(stopLoading('layout'));
-        return;
-      }
       const {sub, email, email_verified, name} = user.attributes;
+      const u = yield select(({app}) => app.user);
+      if (u) return yield put(stopLoading('layout'));
       // Pre Checks
       if (!email_verified) {
-        // Show Error Here
         Alert.alert('Email Not verified', 'Your email is not verified.', [
           {
             text: 'You are being Logged Out.',
@@ -89,39 +91,59 @@ export default {
             },
           },
         ]);
-        yield put(stopLoading('layout'));
       }
-      // checks
-      const getUser = yield User.getUser(sub);
-      console.log(getUser);
-      if (getUser.data.status == 'failed') {
-        console.log('Creating a new user');
-        // Create a new User
-        const params = {
-          uid: sub,
-          email,
-          name,
-        };
-        const addUser = yield User.addUser(params);
-        yield put({type: 'setState', user: addUser.data.data});
-        yield put({type: 'getJobs'});
-      } else {
-        const user = getUser.data.data[0];
-
-        if (user.status == 'deactivated' || user.status == 'blocked') {
-          // throw some error here
-          Alert.alert('No Entry for you.', 'You are being Blocked.', [
-            {
-              text: 'Log out',
-              onPress: () => {
-                Auth.signOut();
-              },
-            },
-          ]);
+      try {
+        const getUser = yield User.getUser(sub);
+        if (getUser.data.status == 'failed') {
+          console.log('Unable to find the user, creating....');
+          let FCMToken = yield call(getData, '@FCM');
+          if (FCMToken) {
+            yield call(RegisterDeviceFCM);
+            FCMToken = yield call(getToken);
+            yield call(storeData, FCMToken, '@FCM');
+          }
+          // Create a new User
+          const params = {
+            uid: sub,
+            email,
+            name,
+            FCMToken,
+          };
+          const addUser = yield User.addUser(params);
+          yield put({type: 'setState', user: addUser.data.data});
+          yield put({type: 'getJobs'});
         } else {
-          yield put({type: 'setState', user});
-          yield put({type: 'getCategories'});
+          console.log('User Fount, checking');
+          const user = getUser.data.data[0];
+          let FCMToken = yield call(getData, '@FCM');
+          if (!FCMToken) {
+            yield call(RegisterDeviceFCM);
+            FCMToken = yield call(getToken);
+            yield call(storeData, FCMToken, '@FCM');
+          }
+          if (user.FCMToken != FCMToken) {
+            // FCM Update.....
+            User.updateUsers(user._id, {FCMToken});
+          }
+          //* Checking if the user got Blocked or deactivated by admins.
+          if (user.status == 'deactivated' || user.status == 'blocked') {
+            Alert.alert('No Entry for you.', 'You are being Blocked.', [
+              {
+                text: 'Log out',
+                onPress: () => {
+                  Auth.signOut();
+                },
+              },
+            ]);
+          } else {
+            yield put({type: 'setState', user});
+            yield put({type: 'getCategories'});
+            yield put(stopLoading('layout'));
+          }
         }
+      } catch (error) {
+        console.log({error});
+        yield put(stopLoading('layout'));
       }
       yield put(stopLoading('layout'));
     },
@@ -129,16 +151,21 @@ export default {
       {page = 0, limit = 10, sort = 'created_at:desc', filter},
       {put, select, call},
     ) {
-      yield put(startLoading('jobs'));
-      const oJobs = yield select(({app}) => app.jobs);
+      try {
+        yield put(startLoading('jobs'));
+        const oJobs = yield select(({app}) => app.jobs);
 
-      const jobs = yield Jobs.getJobs(page, limit, sort, filter);
-      yield put({
-        type: 'setState',
-        jobs: page == 0 ? jobs.data.data : [...oJobs, ...jobs.data.data],
-      });
-      yield put(stopLoading('layout'));
-      yield put(stopLoading('jobs'));
+        const jobs = yield Jobs.getJobs(page, limit, sort, filter);
+        yield put({
+          type: 'setState',
+          jobs: page == 0 ? jobs.data.data : [...oJobs, ...jobs.data.data],
+        });
+        yield put(stopLoading('layout'));
+        yield put(stopLoading('jobs'));
+      } catch (error) {
+        yield put(stopLoading('jobs'));
+        console.log({error});
+      }
     },
     *getCategories(
       {page = 0, limit = 10, sort = 'created_at:desc'},
@@ -193,34 +220,83 @@ export default {
         const awardedJob = yield call(Jobs.updateJobs, data.jid, {
           status: 'awarded',
           awarded: data.bid,
+          awardedBy: data.uid,
         });
         if (awardedJob.data.error) error.push(awardedJob);
-        //
       } catch (e) {}
-      console.log({error});
       if (error.length == 0) {
         yield put(startmessage('bids', true));
-      } else {
+        try {
+          yield call(Notification.sendNotification, data.uid, {
+            notification: {
+              title: "Congrats's !",
+              body: `You have been awarded a Job that you bid on named ${capitalizeString(
+                data.title,
+              )}`,
+            },
+          });
+          yield call(Notification.subscriptToATopic, 'jid.' + data.jid);
+          yield call(Notification.sendCustomNotification, {
+            notification: {
+              title: 'Alert',
+              body:
+                'The job titled "' +
+                data.title +
+                '", has been awarded to user therefore it has been closed.',
+            },
+            topic: 'jid.' + data.jid,
+          });
+        } catch (error) {
+          console.log({error});
+        }
       }
       yield put(stopLoading('layout'));
     },
     *addABid({data}, {put, select, call}) {
-      yield put(startLoading('layout'));
-      const location = yield getData('@location');
-      const user = yield select(({app}) => app.user);
-      const cr = yield call(Bids.setBids, {
-        ...data,
-        uid: user._id,
-        location: location.address.city,
-      });
-
-      yield put(startmessage('payment', cr.data));
-      yield put(stopLoading('layout'));
+      try {
+        yield put(startLoading('layout'));
+        const location = yield getData('@location');
+        const user = yield select(({app}) => app.user);
+        const {uid} = data;
+        const cr = yield call(Bids.setBids, {
+          ...data,
+          uid: user._id,
+          location: location.address.city,
+        });
+        yield put(startmessage('payment', cr.data));
+        yield put(stopLoading('layout'));
+        try {
+          yield call(Notification.sendNotification, uid, {
+            notification: {
+              title: 'You Got a Bid',
+              body: `Contractor named ${capitalizeString(
+                user.name,
+              )} just bided on your Job Post from ${location.address.city}.`,
+            },
+          });
+          yield call(Notification.subscriptToATopic, 'jid.' + data.jid);
+        } catch (error) {
+          console.log({error});
+        }
+      } catch (e) {
+        console.log('error', {e});
+      }
     },
   },
 
   subscriptions: {
     async Init({dispatch}) {
+      const hub = Hub.listen('auth', async (data) => {
+        const {payload} = data;
+        console.log({payload, data});
+        if (payload.event === 'signIn') {
+          dispatch({type: `${namespace}/authenticated`});
+        }
+        if (payload.event === 'signOut') {
+          dispatch({type: `${namespace}/setState`, user: undefined});
+        }
+      });
+
       if (Platform.OS == 'android') {
         await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -241,32 +317,21 @@ export default {
           // do something if granted...
         }
       }
+      getCurrentLocation();
+      await requestUserPermission();
+      const a = await messaging().getAPNSToken();
 
-      Geolocation.getCurrentPosition(
-        async (position) => {
-          console.log({position: position.coords});
-          const location = await getData('@location');
-          if (
-            !location &&
-            location.lat != position.coords.latitude &&
-            location.lng != position.coords.longitude
-          ) {
-            axios
-              .get(
-                `https://us1.locationiq.com/v1/reverse.php?key=pk.a8f720dfd5eaefeec41bfbb7f41d62c6&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`,
-              )
-              .then(async ({data}) => {
-                storeData(data, '@location');
-                const location = await getData('@location');
-              });
-          }
-        },
-        (error) => {
-          // See error code charts below.
-          console.log(error.code, error.message);
-        },
-        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-      );
+      // const unsubscribe = messaging().onMessage(async (remoteMessage) => {
+      //   console.log('HERE');
+      //   Alert.alert(
+      //     'Notification : ' + remoteMessage.notification.title,
+      //     remoteMessage.notification.body,
+      //   );
+      // });
+      return () => {
+        // unsubscribe();
+        hub();
+      };
     },
   },
 
@@ -285,3 +350,20 @@ export default {
     },
   },
 };
+async function requestUserPermission() {
+  const authStatus = await messaging().requestPermission();
+  const enabled =
+    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+  if (enabled) {
+    console.log('Authorization status:', authStatus);
+  }
+}
+
+function RegisterDeviceFCM() {
+  return messaging().registerDeviceForRemoteMessages();
+}
+function getToken() {
+  return messaging().getToken();
+}

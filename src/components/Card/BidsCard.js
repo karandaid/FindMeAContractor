@@ -25,6 +25,8 @@ export function BidsCard(props) {
       });
   }, []);
   //
+  console.log({item});
+
   return (
     <View
       style={{
@@ -33,13 +35,14 @@ export function BidsCard(props) {
         alignItems: 'center',
         backgroundColor: 'white',
         flexDirection: 'row',
-        borderWidth: props.active && 1,
-        borderColor: props.active && '#1A83F9',
+        borderWidth: props.active ? 1 : undefined,
+        borderColor: props.active ? '#1A83F9' : undefined,
       }}>
       <Image
         style={{
           width: 80,
-          height: 50,
+          height: 80,
+          borderRadius: 40,
           marginTop: 20,
           alignSelf: 'flex-start',
         }}
@@ -63,22 +66,27 @@ export function BidsCard(props) {
           }}>
           {user?.name}
         </Text>
-        <Text
-          style={{
-            padding: 3,
-            color: 'white',
-            backgroundColor: '#6E2929',
-            borderRadius: 5,
-            width: 30,
-            fontSize: 8,
-            textAlign: 'center',
-          }}>
-          {user?.rating}
-        </Text>
+        {item?.highlighted && item.highlighted.status == 'paid' && (
+          <Text
+            style={{
+              padding: 3,
+              color: 'white',
+              backgroundColor: '#6E2929',
+              borderRadius: 5,
+              // width: 30,
+              textTransform: 'uppercase',
+              fontSize: 12,
+              textAlign: 'center',
+            }}>
+            {item?.highlighted &&
+              item.highlighted.status == 'paid' &&
+              'Highlighted'}
+          </Text>
+        )}
         <Text
           style={{
             fontFamily: 'Andale Mono',
-            fontSize: 15,
+            fontSize: 14,
             marginVertical: 4,
             color: 'gray',
             textTransform: 'capitalize',

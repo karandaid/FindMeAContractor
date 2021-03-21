@@ -52,10 +52,10 @@ export function Button({onPress, style, textProps, centered, dark, ...props}) {
           style={{
             flex: 1,
             fontFamily: 'Andale Mono',
-            fontSize: 14,
+            fontSize: 16,
             textAlign: centered && 'center',
             color: dark ? 'white' : 'black',
-            ...textProps,
+            ...props.textStyle,
           }}>
           {props.children}
         </Text>

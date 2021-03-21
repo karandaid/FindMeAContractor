@@ -12,7 +12,7 @@ const addUser = (params) => {
   return axios.post(APIURL + 'users', params);
 };
 
-const updateJobs = (id, params) => {
+const updateUsers = (id, params) => {
   return axios.patch(APIURL + 'users/' + id, params);
 };
 
@@ -20,6 +20,6 @@ const User = {
   getUser,
   addUser,
   getUsers,
-  updateJobs,
+  updateUsers,
 };
 export default User;

@@ -30,6 +30,8 @@ export default connect(
   useEffect(() => {
     (async () => {
       const loc = await getData('@location');
+      console.log({loc});
+      console.log(loc.address.city);
       setcity(loc.address.city);
     })();
 
@@ -86,22 +88,7 @@ export default connect(
           }
         />
         <View style={{width: 8}} />
-        {/* <OutlineButton
-          onPress={async () =>
-            await Geolocation.getCurrentPosition(
-              (position) => {
-                console.log(position);
-              },
-              (error) => {
-                // See error code charts below.
-                console.log(error.code, error.message);
-              },
-              {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-            )
-          }
-          centered>
-          Categories
-        </OutlineButton> */}
+
         <ModalDropdown
           defaultValue={'Categories'}
           onSelect={(e) =>
@@ -138,12 +125,6 @@ export default connect(
         onRefresh={() => {
           setpagination(0);
           setrandom(RANDOMWORDS(2));
-          // props.getJobs({
-          //   page: 0,
-          //   limit: 4,
-          //   sort: 'created_at:desc',
-          //   filter: false,
-          // });
         }}
         refreshing={props.loading}
         renderItem={(e) => (

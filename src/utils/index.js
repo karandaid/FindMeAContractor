@@ -1,23 +1,22 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-export const APIURL =
-  'https://elfnovrye5.execute-api.eu-west-2.amazonaws.com/dev/api/';
-// export const APIURL = 'http://localhost:8080/api/';
+import axios from 'axios';
+import Geolocation, {
+  requestAuthorization,
+} from 'react-native-geolocation-service';
+
+/*** CONSTANTS and data sources. */
+/**********************************************************/
+const url = 'https://elfnovrye5.execute-api.eu-west-2.amazonaws.com/dev';
+export const APIURL = `${url}/api/`;
+export const PAYPALURL = `${url}/paypal`;
 export const S3BUCKETURL =
   'https://findmeacontractor5f0bcc14d932483aabc269104b955010736-dev.s3.eu-west-2.amazonaws.com/public/';
+export const GEOCODEAPIKEY = 'AIzaSyDFu9V23Y6Y8gfARAQYrENTY4koE49yeIc';
+/**********************************************************/
+
 export const FORMATE_DATE = function (date) {
   date = new Date(date);
-  return (
-    date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear()
-    // +
-    // ' ' +
-    // ('0' + date.getHours()).slice(-2) +
-    // ':' +
-    // ('0' + date.getMinutes()).slice(-2) +
-    // ':' +
-    // ('0' + date.getSeconds()).slice(-2) +
-    // ' ' +
-    // (date.getHours() < 12 ? 'AM' : 'PM')
-  );
+  return date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
 };
 
 export function RANDOMWORDS(length) {
@@ -30,6 +29,7 @@ export function RANDOMWORDS(length) {
   }
   return result;
 }
+
 export const LIMIT = 2;
 
 export const storeData = async (value, key) => {
@@ -49,6 +49,38 @@ export const getData = async (key) => {
     console.log('get', {e});
     // error reading value
   }
+};
+
+export function capitalizeString(str) {
+  var firstLetter = str.substr(0, 1);
+  return firstLetter.toUpperCase() + str.substr(1);
+}
+
+export const getCurrentLocation = async () => {
+  return new Promise((res, rej) => {
+    Geolocation.getCurrentPosition(
+      async (position) => {
+        axios
+          .get(
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${GEOCODEAPIKEY}`,
+          )
+          .then(async ({data}) => {
+            const add = data.results[0].address_components;
+            const city = add.filter((e) => e.types.includes('locality'));
+            const address = {
+              city: city[0].long_name,
+            };
+            storeData({address}, '@location');
+            res({address});
+          });
+      },
+      (error) => {
+        // See error code charts below.
+        rej(error.code, error.message);
+      },
+      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+    );
+  });
 };
 
 var isoCountries = {

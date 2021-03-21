@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "437565881398",
+    "project_id": "findmeacontractor-ccff8",
+    "storage_bucket": "findmeacontractor-ccff8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437565881398:android:41284fbb5b01bd3a76ac97",
+        "android_client_info": {
+          "package_name": "com.rajaosama.findmeacontractor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437565881398-1u5givgmu5v8ed8gnneseicaqkdn96o3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_07d0MPrrhZ5YSgjz5zei8KJ_ol19YsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437565881398-1u5givgmu5v8ed8gnneseicaqkdn96o3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

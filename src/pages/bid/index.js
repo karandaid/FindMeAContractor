@@ -3,11 +3,14 @@ import {Text, View, Alert} from 'react-native';
 import {Input} from '../../components/Input';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
+import Textarea from 'react-native-textarea';
 
 export default function Bid(props) {
   const [description, setdescription] = useState();
   const [cost, setamount] = useState();
   const jid = props.route.params.id;
+  console.log(props.route.params);
+  const uid = props.route.params.uid;
   return (
     <Layout
       btnProps={{
@@ -20,7 +23,7 @@ export default function Bid(props) {
             parseInt(cost)
           ) {
             props.navigation.navigate('Payment', {
-              data: {description, cost, jid},
+              data: {description, cost, jid, uid},
             });
           } else {
             Alert.alert(
@@ -58,6 +61,7 @@ export default function Bid(props) {
               inputProps={{
                 onChangeText: (e) => setamount(e),
                 keyboardType: 'numeric',
+                placeholder: 'Enter an amount.',
               }}
             />
           </View>
@@ -71,13 +75,26 @@ export default function Bid(props) {
               }}>
               Description
             </Text>
-            <Input
+            {/* <Input
               containerStyle={{height: '90%', alignItems: 'flex-start'}}
               inputProps={{
                 multiline: true,
                 numberOfLines: 10,
                 onChangeText: (e) => setdescription(e),
               }}
+            /> */}
+            <Textarea
+              containerStyle={{
+                backgroundColor: 'white',
+                height: '90%',
+                padding: 10,
+              }}
+              style={{padding: 10, fontSize: 16, fontFamily: 'Andale Mono'}}
+              onChangeText={(e) => setdescription(e)}
+              maxLength={500}
+              placeholder={'Add a appropriate description.'}
+              placeholderTextColor={'gray'}
+              underlineColorAndroid={'transparent'}
             />
           </View>
           <View style={{height: 0}} />

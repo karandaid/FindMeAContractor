@@ -1,11 +1,5 @@
 # FindMeAContractor
 
-## Fixes
-
-    # Location based Seraching
-    # Signup Screen
-    # Profile Throwing errors.
-
 ## Installation
 
     git clone https://github.com/karandaid/FindMeAContractor.git
@@ -13,6 +7,98 @@
     yarn
     yarn pod
     yarn ios
+
+## Migration
+
+// Make sure to remember where ever there is content with ${} or ${ name here } is an indicator that your need to replace it will appropriate string.
+
+- Migrating AWS Account will require a removal of two files, 1 - amplify, and second will be inside of src folder named aws-exports
+
+  - Then in the root
+    Start configuration, will require you to login and after that will ask you to input the aws key and secret key.
+    Ref : https://docs.amplify.aws/cli/start/install#option-2-follow-the-instructions
+
+  ```
+  amplify configure
+  ```
+
+  amplify init will initialize the project.
+
+  ```
+  amplify init
+  ```
+
+  amplify auth enable auth for the project
+  ref : https://docs.amplify.aws/lib/auth/getting-started/q/platform/js#authentication-with-amplify
+
+  ```
+  amplify add Auth
+  ```
+
+  amplify auth enable storage will enable storage usage for the project
+  ref : https://docs.amplify.aws/cli/storage/overview
+
+  ```
+  amplify add Storage
+  ```
+
+  amplify push will push all the configuration to the cloud.
+
+  ```
+  amplify push
+  ```
+
+Reference for future developer to follow this ref for better configuration of the project.
+ref : https://itnext.io/aws-amplify-react-native-authentication-full-setup-7764b452a138
+
+- Renaming Project.
+
+  ```
+  npx react-native-rename "Your App name" -b com.${ your organization name }.${ your app name }
+  ```
+
+- Migrating lambda will require changes in the front-end as well.
+
+  - Change the url for the pervious lambda https functions url inside of 'src/utils/index.js' and change the url
+
+- Migrating bucket will need few additional steps as well.
+
+  - visit aws console and and visit s3.
+  - Find your bucket name and visit the bucket link.
+  - On the top tabs there will be a permission tab, click on it and scroll to the bottom. there you will find a bucket policy. Edit it to.
+
+  ```
+  {
+  "Version": "2008-10-17",
+  "Statement": [
+      {
+          "Sid": "AllowPublicRead",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "*"
+          },
+          "Action": "s3:GetObject",
+          "Resource": "YOUR Bucket ARN" <--- Replace this to the ARN provided just above the textarea.
+      }
+      ]
+  }
+  ```
+
+  - Next step is to generate a public url for the bucket which can be done like this.
+
+  ```
+    'https://{ Your bucket name here }.s3.{ Your region for e.g eu-west-2 }.amazonaws.com/public/';
+  ```
+
+  - Next step would be to replace the above s3 public in "src/utils/index.js" S3BUCKETURL
+
+- Migrating reverse Geocode api, visit "src/utils/index.js" and replace GEOCODEAPIKEY with the new one.
+
+- Migrating Firebase, you will need to get two files "google-service.json" and "GoogleService-Info.plist".
+  for GoogleService-Info.plist, ref : https://rnfirebase.io/#3-ios-setup
+  for google-service.json,
+  Open the Firebase console, add a new Android application and enter your projects details. Project package name is com.rajaosama.findmeacontractor. Download the google-services.json file and place it inside of your project at the following location: /android/app/google-services.json.
+  Ref : https://rnfirebase.io/#generating-android-credentials
 
 ## Backend EndPoint
 
@@ -31,72 +117,9 @@ MongoDB Hosted on Atlas
 Restful API is written in framework node.js over express.js, deployed on AWS.
 Images are being uploaded into s3 Bucket
 
-### Schema :
-
-# Users :
-
-    uid : user Cognito ID
-    email : user email
-    name : user name
-    phone : user phone number
-    address : user Address
-    status : user Status, if status deactivated, he won’t be able to login
-    jobs : Jobs posted
-    bids : bids posted
-    awarded : jobs awarded
-    rating : rating
-    image : profile image
-    created_at
-
-# Jobs :
-
-    uid : user id, who posted this job - relation
-    title : title of the post
-    description : description
-    price : price of the job
-    category : which category the job falls in
-    images : job gallery
-    status : jobs status, it won’t show in jobs if closed
-    awarded : check if the job is being awarded or not.
-    rating : the contractor rating
-    review : the review for the contractor
-    created_at :
-
-# Bids :
-
-    uid : who posted the bid
-    jid : which job the bid is posted on
-    status : status of the bid, it can be awarded, active, and closed
-    description : the description of the bid more then 100 character needed
-    highlighted : is paid for
-    cost : the offered cost.
-    created_at
-
-# Categories :
-
-    name : the name of the category
-    created_at
-
-# Chats :
-
-    alias : the name of the person who commented
-    jid : Relation - > which job the conversation is happening on.
-    uid : the user id who is writing the message
-    message : message
-    attachment : attachment, only include images.
-    created_at
-
-`The Database structured is mostly relation-based. The backend rest includes 6 routes. `
-
-    -> Get
-    -> Post
-    -> Get by id
-    -> Update by id
-    -> Delete by Id
-
 An additional feature that includes, pagination, search by Text and searches by category is implemented within the app which was not the requirement.
 
-There is a chating system, it is not real-time, since it was not the requirement as well.
+There is a chatting system, it is not real-time, since it was not the requirement as well.
 
 The above writing routes like Post, update by id, and delete contain side effects. Those sided effects will affect the database such as if the job is being rated, it will be implemented on the user's profile automatically.
 

@@ -1,4 +1,4 @@
-package com.freelanceproject;
+package com.rajaosama.findmeacontractor;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "FreeLanceProject";
+    return "FindMeAContractor";
   }
 }

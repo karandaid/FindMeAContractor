@@ -17,6 +17,7 @@ export function Input(props) {
       {props.leftComponent && props.leftComponent}
       <TextInput
         {...props.inputProps}
+        placeholderTextColor={'gray'}
         style={{
           marginLeft: 10,
           flex: 1,
