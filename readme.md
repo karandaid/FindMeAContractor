@@ -1,5 +1,20 @@
 # FindMeAContractor
 
+## Possible Solution
+
+If IOS build is failing, before steps make sure to clean the build folder from xcode, Possible Solutions are :
+
+Delete these folders.
+node_modules
+package-lock.json
+yarn.lock
+ios/Podfile.lock
+ios/Pods
+yarn pod
+yarn ios
+
+Make sure to
+
 ## Installation
 
     git clone https://github.com/karandaid/FindMeAContractor.git
