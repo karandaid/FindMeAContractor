@@ -12,22 +12,26 @@
 Some time most of the errors goes away when you clean the build folder.
 for android :
 
+    ```
     cd android
     ./gradlew clean
     cd ../
+    ```
 
 for ios :
+    ```
     xcode 
     In the top menu Product -> clean build folder.
+    ```
 
 for bundler cache clean :
-    yarn start --reset-cache
-    
+    ```yarn start --reset-cache
+    ```
 
 ## Possible Solution for ios
 
 If IOS build is failing, before steps make sure to clean the build folder from xcode, Possible Solutions are :
-
+```
 Delete these folders.
 node_modules
 package-lock.json
@@ -36,7 +40,7 @@ ios/Podfile.lock
 ios/Pods
 yarn pod
 yarn ios
-
+```
 Make sure to
 
 
