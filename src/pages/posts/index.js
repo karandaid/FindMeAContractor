@@ -496,14 +496,15 @@ const ModalView = connect(
 
 const ImageSection = (props) => {
   const [images, setimages] = props.images;
-
+  console.log({images});
   return (
     <View style={{flex: 1}}>
       <Button
         onPress={async () => {
           launchImageLibrary({}, async (e) => {
+            if (e.didCancel) return;
             const img = [...images, e];
-            if (e.length > 0) setimages([...img]);
+            setimages([...img]);
           });
         }}
         centered

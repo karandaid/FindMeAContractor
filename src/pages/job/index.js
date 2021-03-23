@@ -134,7 +134,11 @@ export default connect(
               props.navigation.navigate('Post', {data: e})
             }></JobCard>
         )}
-        data={search.length > 0 ? search : props.jobs}
+        data={
+          search.length > 0
+            ? search
+            : props.jobs.filter((e) => e.status == 'active')
+        }
       />
       <LocationCom
         setlocationmodal={setlocationmodal}
