@@ -1,6 +1,27 @@
 # FindMeAContractor
 
-## Possible Solution
+## Installation
+
+    git clone https://github.com/karandaid/FindMeAContractor.git
+    yarn cd FindMeAContractor
+    yarn
+    yarn pod
+    yarn ios || yarn android
+
+## Clean Build
+Some time most of the errors goes away when you clean the build folder.
+for android :
+
+    cd android
+    ./gradlew clean
+    cd ../
+
+for ios :
+    xcode 
+    In the top menu Product -> clean build folder.
+
+
+## Possible Solution for ios
 
 If IOS build is failing, before steps make sure to clean the build folder from xcode, Possible Solutions are :
 
@@ -15,13 +36,7 @@ yarn ios
 
 Make sure to
 
-## Installation
 
-    git clone https://github.com/karandaid/FindMeAContractor.git
-    yarn cd FindMeAContractor
-    yarn
-    yarn pod
-    yarn ios
 
 ## Migration
 
