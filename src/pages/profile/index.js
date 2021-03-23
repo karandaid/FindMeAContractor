@@ -55,7 +55,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                   launchImageLibrary({}, async (e) => {
                     if (!e.didCancel) {
                       const img = [...images, e];
-                      if (e.length > 0) setimages([...img]);
+                      setimages([...img]);
                     }
                   })
                 }

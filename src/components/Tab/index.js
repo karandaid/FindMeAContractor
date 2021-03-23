@@ -11,14 +11,17 @@ export const Tab = connect(
   console.log({props});
   const tabs = [
     {name: 'search-outline', onPress: () => navigation.replace('Home')},
-    {name: 'newspaper-outline', onPress: () => navigation.replace('Projects')},
+    {
+      name: 'newspaper-outline',
+      onPress: () => props.user && navigation.replace('Projects'),
+    },
     {
       name: 'ios-add-circle-outline',
       onPress: () => navigation.navigate('Posts'),
     },
     {
       name: 'paper-plane-outline',
-      onPress: () => navigation.replace('MyProjects'),
+      onPress: () => props.user && navigation.replace('MyProjects'),
     },
     {
       name: 'ios-person-circle-outline',
