@@ -1,27 +1,36 @@
 import {useNavigation} from '@react-navigation/native';
+import {connect} from 'dva';
 import React, {useEffect, useState} from 'react';
 import {Platform, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-export function Tab({containerStyle, onTabChange, active}) {
+export const Tab = connect(
+  ({app}) => ({user: app.user}),
+  {},
+)(({containerStyle, onTabChange, active, ...props}) => {
   const [selected, setselected] = useState(active ? active - 1 : 0);
+  console.log({props});
   const tabs = [
     {name: 'search-outline', onPress: () => navigation.replace('Home')},
-    {name: 'newspaper-outline', onPress: () => navigation.replace('Projects')},
     {
       name: 'ios-add-circle-outline',
       onPress: () => navigation.navigate('Posts'),
     },
-    {
-      name: 'paper-plane-outline',
-      onPress: () => navigation.replace('MyProjects'),
-    },
+
     {
       name: 'ios-person-circle-outline',
       onPress: () => navigation.replace('Profile'),
     },
   ];
-
+  if (props.user) {
+    tabs.push({
+      name: 'paper-plane-outline',
+      onPress: () => navigation.replace('MyProjects'),
+    });
+    tabs.push({
+      name: 'newspaper-outline',
+      onPress: () => navigation.replace('Projects'),
+    });
+  }
   useEffect(() => {
     onTabChange && onTabChange(selected);
   }, [selected]);
@@ -53,7 +62,7 @@ export function Tab({containerStyle, onTabChange, active}) {
       ))}
     </View>
   );
-}
+});
 export function TextTabs({containerStyle, onTabChange, tabsContent}) {
   const [selected, setselected] = useState(0);
 
