@@ -20,6 +20,9 @@ for ios :
     xcode 
     In the top menu Product -> clean build folder.
 
+for bundler cache clean :
+    yarn start --reset-cache
+    
 
 ## Possible Solution for ios
 
