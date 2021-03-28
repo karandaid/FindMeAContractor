@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Text,
   Image,
   View,
   FlatList,
@@ -31,6 +30,7 @@ import {EmptyListMessage} from '../job';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Textarea from 'react-native-textarea';
+import {Text} from '@ui-kitten/components';
 
 export default connect(
   ({app}) => ({categories: app.categories, message: app.message.post}),
@@ -164,11 +164,14 @@ export default connect(
       <ScrollView>
         <Section style={{height: '100%'}}>
           <Text
-            style={{
-              fontSize: 26,
-              fontWeight: 'bold',
-              fontFamily: 'Andale Mono',
-            }}>
+            category="h1"
+            style={
+              {
+                // fontSize: 26,
+                // fontWeight: 'bold',
+                // fontFamily: 'Andale Mono',
+              }
+            }>
             Post a Job
           </Text>
 
@@ -178,7 +181,7 @@ export default connect(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+                  // fontFamily: 'Andale Mono',
                   marginBottom: 5,
                 }}>
                 Title
@@ -194,7 +197,7 @@ export default connect(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+                  // fontFamily: 'Andale Mono',
                   marginBottom: 5,
                 }}>
                 Categories
@@ -213,7 +216,7 @@ export default connect(
                 }}
                 textStyle={{
                   fontSize: 18,
-                  fontFamily: 'Andale Mono',
+                  // fontFamily: 'Andale Mono',
                 }}
                 renderButtonText={(e) => <Text>{e}</Text>}
                 renderRowText={(e) => (
@@ -224,7 +227,7 @@ export default connect(
                 options={props?.categories?.map((e) => e.name)}
               />
             </View>
-            <Button onPress={() => setlocationmodal(true)} centered>
+            <Button onPress={() => setlocationmodal(true)} dark centered>
               {city ? city : 'Select a City'}
             </Button>
 
@@ -232,8 +235,9 @@ export default connect(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+                  // fontFamily: 'Andale Mono',
                   marginVertical: 5,
+                  marginTop: 7,
                 }}>
                 Description
               </Text>
@@ -248,7 +252,7 @@ export default connect(
               /> */}
               <Textarea
                 containerStyle={{backgroundColor: 'white'}}
-                style={{padding: 10, fontSize: 16, fontFamily: 'Andale Mono'}}
+                style={{padding: 10, fontSize: 16}}
                 onChangeText={(e) => setdescription(e)}
                 // defaultValue={this.state.text}
                 maxLength={500}
@@ -257,7 +261,7 @@ export default connect(
                 underlineColorAndroid={'transparent'}
               />
             </View>
-            <View style={{height: 0}} />
+            <View style={{height: 10}} />
           </View>
           <ImageSection images={[images, setimages]} />
         </Section>
@@ -385,11 +389,12 @@ const ModalView = connect(
           }}>
           <Section style={{flex: 1}}>
             <Text
+              category={'h1'}
               style={{
                 textAlign: 'center',
-                fontSize: 26,
+                // fontSize: 26,
                 fontWeight: 'bold',
-                fontFamily: 'Andale Mono',
+                // fontFamily: 'Andale Mono',
                 marginTop: 20,
               }}>
               Additional Info
@@ -400,7 +405,6 @@ const ModalView = connect(
                 <Text
                   style={{
                     color: '#707070',
-                    fontFamily: 'Andale Mono',
                     marginBottom: 5,
                   }}>
                   Ideal Pricing
@@ -454,8 +458,8 @@ const ModalView = connect(
                   />
                 </TouchableOpacity>
                 <Text
+                  category={'p1'}
                   style={{
-                    fontFamily: 'Andale Mono',
                     paddingHorizontal: 20,
                     fontSize: 18,
                     paddingBottom: 10,
@@ -475,7 +479,7 @@ const ModalView = connect(
                 }}
                 centered
                 dark>
-                {props.loading ? 'loading...' : 'Confirmed'}
+                {props.loading ? 'Loading...' : 'Confirmed'}
               </Button>
               <Text
                 onPress={() => props.onRequestClose()}

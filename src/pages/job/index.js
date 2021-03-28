@@ -11,6 +11,7 @@ import {authenticated, getJobs} from '../../models/app';
 import ModalDropdown from 'react-native-modal-dropdown';
 import {getData, LIMIT, RANDOMWORDS} from '../../utils';
 import {LocationCom} from '../posts';
+import {Select, SelectItem, Layout as Lay} from '@ui-kitten/components';
 
 export default connect(
   ({app}) => ({
@@ -68,28 +69,29 @@ export default connect(
 
   return (
     <Layout>
-      <Section row>
-        <Input
-          containerStyle={{flex: 1, borderRadius: 8}}
-          inputStyle={{flex: 1}}
-          inputProps={{
-            onChangeText: setsearchInput,
-            onSubmitEditing: () => getSearchContent(searchInput),
-          }}
-          rightComponent={
-            <TouchableOpacity onPress={() => setlocationmodal(true)}>
-              <Icon size={20} color={'black'} name={'md-earth-outline'} />
-            </TouchableOpacity>
-          }
-          leftComponent={
-            <TouchableOpacity>
-              <Icon size={20} color={'black'} name={'search-outline'} />
-            </TouchableOpacity>
-          }
-        />
-        <View style={{width: 8}} />
+      <Lay>
+        <Section>
+          <Input
+            containerStyle={{flex: 1, borderRadius: 8}}
+            inputStyle={{flex: 1}}
+            inputProps={{
+              onChangeText: setsearchInput,
+              onSubmitEditing: () => getSearchContent(searchInput),
+            }}
+            rightComponent={
+              <TouchableOpacity onPress={() => setlocationmodal(true)}>
+                <Icon size={20} color={'black'} name={'md-earth-outline'} />
+              </TouchableOpacity>
+            }
+            leftComponent={
+              <TouchableOpacity>
+                <Icon size={20} color={'black'} name={'search-outline'} />
+              </TouchableOpacity>
+            }
+          />
+          {/* <View style={{width: 8}} /> */}
 
-        <ModalDropdown
+          {/* <ModalDropdown
           defaultValue={'Categories'}
           onSelect={(e) =>
             filterByCate([{name: undefined}, ...props.categories][e]?.name)
@@ -110,8 +112,20 @@ export default connect(
             <Text style={{fontSize: 16, fontFamily: 'Andale Mono'}}>{e}</Text>
           )}
           options={['categories', ...props?.categories?.map((e) => e.name)]}
-        />
-      </Section>
+        /> */}
+          <Select
+            placeholder="Categories"
+            onSelect={(e) =>
+              filterByCate([{name: undefined}, ...props.categories][e]?.name)
+            }>
+            {['categories', ...props?.categories?.map((e) => e.name)].map(
+              (e) => (
+                <SelectItem title={e} />
+              ),
+            )}
+          </Select>
+        </Section>
+      </Lay>
 
       <FlatList
         ListFooterComponent={() => (

@@ -3,16 +3,18 @@ import React from 'react';
 import {ActivityIndicator, Platform, View} from 'react-native';
 import {Button} from '../Button';
 import {Tab} from '../Tab';
+import {Layout as Lay} from '@ui-kitten/components';
 
 export const Layout = connect(
   ({app}) => ({loading: app.loading.layout}),
   {},
 )((props) => {
   return (
-    <View
+    <Lay
+      level="2"
       style={{
         flex: 1,
-        backgroundColor: '#F6F6F8',
+        // backgroundColor: '#F6F6F8',
       }}>
       <View
         style={{
@@ -30,7 +32,7 @@ export const Layout = connect(
             paddingBottom: Platform.OS == 'ios' ? 20 : undefined,
             ...props.btnProps.style,
           }}
-          textStyle={{fontSize: 18}}
+          textStyle={{fontSize: 18, color: 'black'}}
           centered>
           {props.btnProps.children}
         </Button>
@@ -51,6 +53,6 @@ export const Layout = connect(
           <ActivityIndicator color={'black'} />
         </View>
       )}
-    </View>
+    </Lay>
   );
 });

@@ -1,4 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
+import {BottomNavigation, BottomNavigationTab} from '@ui-kitten/components';
 import {connect} from 'dva';
 import React, {useEffect, useState} from 'react';
 import {Platform, Text, TouchableOpacity, View} from 'react-native';
@@ -35,30 +36,48 @@ export const Tab = connect(
   const navigation = useNavigation();
 
   return (
-    <View
-      style={{
-        backgroundColor: 'white',
-        paddingBottom: Platform.OS == 'ios' ? 20 : 0,
+    // <View
+    //   style={{
+    //     backgroundColor: 'white',
+    //     paddingBottom: Platform.OS == 'ios' ? 20 : 0,
 
-        height: Platform.OS == 'ios' ? 70 : 50,
-        flexDirection: 'row',
-        ...containerStyle,
-      }}>
+    //     height: Platform.OS == 'ios' ? 70 : 50,
+    //     flexDirection: 'row',
+    //     ...containerStyle,
+    //   }}>
+    //   {tabs.map((e, i) => (
+    //     <TouchableOpacity
+    //       key={i + 't'}
+    //       onPress={e.onPress}
+    //       style={{
+    //         flex: 1,
+    //         justifyContent: 'center',
+    //         alignItems: 'center',
+    //         borderTopWidth: selected == i ? 2 : undefined,
+    //         borderTopColor: selected == i ? 'black' : undefined,
+    //       }}>
+    //       <Icon size={25} color={'black'} name={e.name} />
+    //     </TouchableOpacity>
+    //   ))}
+    // </View>
+    <BottomNavigation
+      indicatorStyle={{borderColor: 'red'}}
+      selectedIndex={selected}
+      onSelect={(index) => {
+        setselected(index);
+        tabs[index].onPress();
+      }}
+      // onTabChange={(e) => console.log(tabs[e])}
+    >
       {tabs.map((e, i) => (
-        <TouchableOpacity
-          key={i + 't'}
-          onPress={e.onPress}
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderTopWidth: selected == i ? 2 : undefined,
-            borderTopColor: selected == i ? 'black' : undefined,
-          }}>
-          <Icon size={25} color={'black'} name={e.name} />
-        </TouchableOpacity>
+        <BottomNavigationTab
+          icon={() => <Icon size={25} color={'black'} name={e.name} />}
+          title=""
+        />
       ))}
-    </View>
+      {/* // <BottomNavigationTab icon={BellIcon} title="ORDERS" />
+      // <BottomNavigationTab icon={EmailIcon} title="TRANSACTIONS" /> */}
+    </BottomNavigation>
   );
 });
 export function TextTabs({containerStyle, onTabChange, tabsContent}) {

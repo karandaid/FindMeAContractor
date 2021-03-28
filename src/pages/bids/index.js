@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, FlatList, TouchableOpacity, Alert} from 'react-native';
+import {View, FlatList, TouchableOpacity, Alert} from 'react-native';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import {BidsCard} from '../../components/Card/BidsCard';
@@ -7,6 +7,7 @@ import Bid from '../../service/bid';
 import {connect} from 'dva';
 import {awardABid} from '../../models/app';
 import Jobs from '../../service/jobs';
+import {Text} from '@ui-kitten/components';
 
 export default connect(({app}) => ({jb: app.message.bids}), {awardABid})(
   function Bids(props) {
@@ -79,10 +80,11 @@ export default connect(({app}) => ({jb: app.message.bids}), {awardABid})(
         disableTabs>
         <Section style={{height: '100%'}}>
           <Text
+            category={'h2'}
             style={{
-              fontSize: 26,
+              // fontSize: 26,
               fontWeight: 'bold',
-              fontFamily: 'Andale Mono',
+              // fontFamily: 'Andale Mono',
             }}>
             Bids
           </Text>
@@ -111,11 +113,12 @@ const EmptyListMessage = ({item}) => {
   return (
     // Flat List Item
     <Text
+      category={'s2'}
       style={{
         padding: 10,
         fontSize: 18,
         textAlign: 'center',
-        fontFamily: 'Andale Mono',
+        // fontFamily: 'Andale Mono',
       }}
       onPress={() => getItem(item)}>
       No Data Found

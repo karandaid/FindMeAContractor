@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {Text, View, Alert} from 'react-native';
+import {View, Alert} from 'react-native';
 import {Input} from '../../components/Input';
 import {Layout} from '../../components/layout';
 import {Section} from '../../components/section';
 import Textarea from 'react-native-textarea';
+import {Text} from '@ui-kitten/components';
 
 export default function Bid(props) {
   const [description, setdescription] = useState();
@@ -39,10 +40,11 @@ export default function Bid(props) {
       disableTabs>
       <Section style={{height: '100%'}}>
         <Text
+          category={'h1'}
           style={{
             fontSize: 26,
             fontWeight: 'bold',
-            fontFamily: 'Andale Mono',
+            //
           }}>
           Your Bid
         </Text>
@@ -52,7 +54,7 @@ export default function Bid(props) {
             <Text
               style={{
                 color: '#707070',
-                fontFamily: 'Andale Mono',
+
                 marginBottom: 5,
               }}>
               Paid to you
@@ -70,7 +72,7 @@ export default function Bid(props) {
             <Text
               style={{
                 color: '#707070',
-                fontFamily: 'Andale Mono',
+
                 marginBottom: 5,
               }}>
               Description

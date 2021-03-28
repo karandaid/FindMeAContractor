@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Text,
   Image,
   View,
   FlatList,
@@ -21,6 +20,7 @@ import {connect} from 'dva';
 import {Rating} from 'react-native-ratings';
 import {useNavigation} from '@react-navigation/native';
 import notification from '../../service/notification';
+import {Text} from '@ui-kitten/components';
 
 export default connect(({app}) => ({user: app.user}))(function Post(props) {
   const selfCheck = props.route.params?.self;
@@ -128,46 +128,14 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
       }}
       disableTabs>
       <ScrollView>
-        <Section>
-          <Text
-            style={{
-              marginTop: 50,
-              fontFamily: 'Andale Mono',
-              fontSize: 12,
-              color: 'gray',
-            }}>
-            Title
-          </Text>
-          <Text
-            style={{
-              fontFamily: 'Andale Mono',
-              fontSize: 30,
-            }}>
-            {item.title}
-          </Text>
-
-          <Text
-            style={{
-              marginTop: 10,
-              fontFamily: 'Andale Mono',
-              fontSize: 12,
-              color: 'gray',
-            }}>
-            Description
-          </Text>
-          <Text
-            style={{
-              fontFamily: 'Andale Mono',
-              fontSize: 16,
-              color: 'black',
-            }}>
-            {item.description}
-          </Text>
-        </Section>
         <Image
           style={{width: '100%', height: 200}}
           resizeMode={'cover'}
-          source={{uri: S3BUCKETURL + select}}
+          source={
+            select
+              ? {uri: S3BUCKETURL + select}
+              : require('../../assets/images/image.png')
+          }
         />
         <View style={{height: 10}} />
         <FlatList
@@ -190,52 +158,41 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
             );
           }}
         />
-        <Section style={{backgroundColor: 'white'}}>
+        <Section>
+          <Text appearance="hint">Title</Text>
+          <Text category="h1">{item.title}</Text>
+
           <Text
             style={{
               marginTop: 10,
-              fontFamily: 'Andale Mono',
-              fontSize: 18,
+            }}
+            appearance="hint">
+            Description
+          </Text>
+          <Text
+            category="p1"
+            style={{
+              marginTop: 10,
             }}>
+            {item.description}
+          </Text>
+        </Section>
+        <Section style={{backgroundColor: 'white', flex: 1}}>
+          <Text
+            style={{
+              marginTop: 10,
+              marginBottom: 10,
+            }}
+            category="h5">
             Additional Information
           </Text>
-          <Text
-            style={{
-              marginTop: 10,
-              fontFamily: 'Andale Mono',
-              fontSize: 18,
-              color: 'gray',
-            }}>
-            From {item.category} category
-          </Text>
+          <Text category="p1">From {item.category} category</Text>
           <View>
-            <Text
-              style={{
-                marginTop: 10,
-                fontFamily: 'Andale Mono',
-                fontSize: 18,
-                color: 'gray',
-              }}>
-              Status :{item.status}
-            </Text>
-            <Text
-              style={{
-                marginTop: 10,
-                fontFamily: 'Andale Mono',
-                fontSize: 18,
-                color: 'gray',
-              }}>
-              Rating :{item.rating || 0}
-            </Text>
+            <Text category="p1">Status is {item.status}</Text>
+            <Text category="p1">Rating {item.rating || 'is unavailable'}</Text>
           </View>
-          <Text
-            style={{
-              marginTop: 10,
-              fontFamily: 'Andale Mono',
-              fontSize: 18,
-              color: 'gray',
-            }}>
-            Reviews :{item.review || 'Review not avaliable at the moment.'}
+          <Text category="p1">
+            Reviews {item.review || 'Review not available at the moment.'}
           </Text>
         </Section>
       </ScrollView>

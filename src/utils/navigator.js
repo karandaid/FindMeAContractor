@@ -2,14 +2,7 @@ import React, {useEffect, ref, useRef} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../pages/home';
-import {
-  Alert,
-  Button,
-  StatusBar,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Alert, StatusBar, TouchableOpacity, View} from 'react-native';
 import Job from '../pages/job';
 import Applied from '../pages/applied';
 import Projects from '../pages/projects';
@@ -31,6 +24,7 @@ import {logout} from '../models/app';
 import {connect} from 'dva';
 import NotificationPopup from 'react-native-push-notification-popup';
 import messaging from '@react-native-firebase/messaging';
+import {Text} from '@ui-kitten/components';
 
 const Stack = createStackNavigator();
 
@@ -168,7 +162,7 @@ const HeaderConfig = ({title, back, logout}) => {
                   marginLeft: 20,
                   fontSize: 20,
                   fontWeight: 'bold',
-                  fontFamily: 'Andale Mono',
+                  // fontFamily: 'Andale Mono',
                   color: '#707070',
                 }}>
                 {back.title}
@@ -219,15 +213,15 @@ const HeaderConfig = ({title, back, logout}) => {
       elevation: 0, // remove shadow on Android
       shadowOpacity: 0,
       // position: 'absolute',
-      backgroundColor: '#F6F6F8',
+      // backgroundColor: '#F6F6F8',
 
       borderColor: '#F6F6F8',
     },
-    headerTintColor: '#707070',
+    // headerTintColor: '#707070',
     headerTitleStyle: {
       fontSize: 23,
       fontWeight: 'bold',
-      fontFamily: 'Andale Mono',
+      // fontFamily: 'Andale Mono',
     },
   };
 };
@@ -267,5 +261,5 @@ export default withAuthenticator(
   },
   [],
   null,
-  MyTheme,
+  // MyTheme,
 );

@@ -1,5 +1,6 @@
+import {Text} from '@ui-kitten/components';
 import React, {useEffect} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Jobs from '../../service/jobs';
 import {FORMATE_DATE, S3BUCKETURL} from '../../utils';
@@ -26,39 +27,30 @@ export function JobCard(props) {
             style={{
               flex: 1,
             }}>
+            <Text category="h5">{item.title}</Text>
             <Text
               style={{
-                fontFamily: 'Andale Mono',
-                fontSize: 18,
-                textTransform: 'capitalize',
-              }}>
-              {item.title}
-            </Text>
-            <Text
-              style={{
-                fontFamily: 'Andale Mono',
-                fontSize: 14,
-                color: '#6C6C6C',
+                // fontFamily: 'Andale Mono',
+                // fontSize: 14,
+                // color: '#6C6C6C',
                 paddingVertical: 2,
-                paddingRight: 3,
+                // paddingRight: 3,
               }}
+              category="p1"
+              // appearance="hint"
               numberOfLines={4}>
               {item.description}
             </Text>
+            <Text status="success">status is {item.status}</Text>
             <Text
-              style={{
-                fontFamily: 'Andale Mono',
-                fontSize: 12,
-                color: 'green',
-              }}>
-              status: {item.status}
-            </Text>
-            <Text
-              style={{
-                fontFamily: 'Andale Mono',
-                fontSize: 12,
-              }}>
-              location: {item.city}
+              // style={{
+              //   fontFamily: 'Andale Mono',
+              //   fontSize: 12,
+              // }}
+              category="p1"
+              // appearance="hint"
+            >
+              location is {item.city}
             </Text>
           </View>
           <View
@@ -75,10 +67,11 @@ export function JobCard(props) {
               <Icon size={16} name={'information-circle-outline'} />
               <Text
                 style={{
-                  fontSize: 12,
+                  // fontSize: 12,
                   marginLeft: 3,
-                  fontFamily: 'Andale Mono',
-                }}>
+                  // fontFamily: 'Andale Mono',
+                }}
+                category="p2">
                 {FORMATE_DATE(item.created_at)}
               </Text>
             </View>
@@ -91,11 +84,12 @@ export function JobCard(props) {
               <Icon size={16} name={'md-cash'} />
               <Text
                 style={{
-                  fontSize: 12,
+                  // fontSize: 12,
                   marginLeft: 3,
 
-                  fontFamily: 'Andale Mono',
-                }}>
+                  // fontFamily: 'Andale Mono',
+                }}
+                category="p2">
                 {item.price[0]}
                 {item.price[2]} - {item.price[1]}
                 {item.price[2]}
