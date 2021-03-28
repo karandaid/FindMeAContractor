@@ -134,7 +134,6 @@ const EmptyListMessage = ({item}) => {
         padding: 10,
         fontSize: 18,
         textAlign: 'center',
-        fontFamily: 'Andale Mono',
       }}
       onPress={() => getItem(item)}>
       No Data Found

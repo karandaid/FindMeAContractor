@@ -1,7 +1,7 @@
+import {Card, Text} from '@ui-kitten/components';
 import React, {useEffect, useState} from 'react';
 import {
   View,
-  Text,
   Image,
   Modal,
   Alert,
@@ -10,10 +10,13 @@ import {
 } from 'react-native';
 import User from '../../service/user';
 import {Button} from '../Button';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {theme} from '../../utils/evaTheme';
 
 export function BidsCard(props) {
   const [user, setuser] = useState(user);
   const {item, index} = props.data;
+  const [rating, setrating] = useState();
   const select = useState(undefined);
   useEffect(() => {
     User.getUsers(0, 1, 'created_at:desc', '_id:' + item.uid)
@@ -23,9 +26,24 @@ export function BidsCard(props) {
       .catch((e) => {
         console.log({e});
       });
+    User.getUserRating(item.uid)
+      .then(({data}) => {
+        console.log({data: data.data[0]});
+        setrating(data.data[0].rating);
+      })
+      .catch((e) => {
+        console.log({e});
+      });
   }, []);
+
+  const getReviews = () => User.getUserReviews(item.uid);
+
   //
   console.log({item});
+  const stars = [];
+  for (let i = 0; i < Math.round(rating); i++) {
+    stars.push(1);
+  }
 
   return (
     <View
@@ -58,46 +76,54 @@ export function BidsCard(props) {
           paddingVertical: 20,
         }}>
         <Text
+          category={'h6'}
           style={{
-            fontFamily: 'Andale Mono',
-            fontSize: 18,
+            // fontSize: 18,
             marginBottom: 4,
             textTransform: 'capitalize',
           }}>
           {user?.name}
         </Text>
-        {item?.highlighted && item.highlighted.status == 'paid' && (
-          <Text
-            style={{
-              padding: 3,
-              color: 'white',
-              backgroundColor: '#6E2929',
-              borderRadius: 5,
-              // width: 30,
-              textTransform: 'uppercase',
-              fontSize: 12,
-              textAlign: 'center',
-            }}>
-            {item?.highlighted &&
-              item.highlighted.status == 'paid' &&
-              'Highlighted'}
-          </Text>
-        )}
+        <View style={{flexDirection: 'row', marginBottom: 10}}>
+          {stars.map((e) => (
+            <Icon color={theme['color-primary-500']} size={15} name="star" />
+          ))}
+        </View>
+
+        <View style={{flexDirection: 'row'}}>
+          {item?.highlighted && item.highlighted.status == 'paid' && (
+            <Text
+              category={'p1'}
+              style={{
+                padding: 3,
+                paddingHorizontal: 6,
+                color: 'white',
+                backgroundColor: theme['color-danger-500'],
+                borderRadius: 5,
+                // width: 30,
+                textTransform: 'uppercase',
+
+                textAlign: 'center',
+              }}>
+              {item?.highlighted &&
+                item.highlighted.status == 'paid' &&
+                'Highlighted'}
+            </Text>
+          )}
+        </View>
+
         <Text
+          category={'p1'}
           style={{
-            fontFamily: 'Andale Mono',
-            fontSize: 14,
-            marginVertical: 4,
-            color: 'gray',
             textTransform: 'capitalize',
           }}
           numberOfLines={3}>
           {item.description}
         </Text>
 
-        <TouchableOpacity onPress={() => select[1](index)}>
-          <Text style={{textAlign: 'right', marginTop: 20}}>EXPAND</Text>
-        </TouchableOpacity>
+        <Button style={{marginTop: 10}} dark onPress={() => select[1](index)}>
+          EXPAND
+        </Button>
       </View>
       <Modal
         animationType="slide"
@@ -108,45 +134,78 @@ export function BidsCard(props) {
           Alert.alert('Modal has been closed.');
           // setModalVisible(!modalVisible);
         }}>
-        <View style={{flex: 1, marginTop: 100, marginHorizontal: 30}}>
-          <ScrollView>
-            <Text
-              style={{
-                fontFamily: 'Andale Mono',
-                fontSize: 30,
-                marginBottom: 4,
-                textTransform: 'capitalize',
-              }}>
-              {user?.name}
-            </Text>
-            <Text
-              style={{
-                fontFamily: 'Andale Mono',
-                fontSize: 20,
-                marginBottom: 4,
-                color: 'green',
-                textTransform: 'capitalize',
-              }}>
-              Pricing {item.cost}
-            </Text>
-            <Text
-              style={{
-                fontFamily: 'Andale Mono',
-                fontSize: 18,
-                marginVertical: 4,
-                color: 'gray',
-                textTransform: 'capitalize',
-              }}>
-              {item.description}
-            </Text>
-          </ScrollView>
-        </View>
-        <View>
-          <Button onPress={() => select[1](undefined)} centered dark>
-            Close
-          </Button>
-        </View>
+        <>
+          <View style={{flex: 1, marginTop: 100, marginHorizontal: 30}}>
+            <ScrollView>
+              <Text
+                category={'h3'}
+                style={{
+                  marginBottom: 4,
+                  textTransform: 'capitalize',
+                }}>
+                {user?.name}
+              </Text>
+              <View style={{flexDirection: 'row', marginBottom: 10}}>
+                {stars.map((e) => (
+                  <Icon
+                    color={theme['color-primary-500']}
+                    size={20}
+                    name="star"
+                  />
+                ))}
+              </View>
+              <Text
+                category={'p1'}
+                style={{
+                  marginBottom: 4,
+                  color: 'green',
+                  textTransform: 'capitalize',
+                }}>
+                Pricing {item.cost}
+              </Text>
+              <Text
+                category={'p1'}
+                style={{
+                  marginVertical: 4,
+                  color: 'gray',
+                  textTransform: 'capitalize',
+                }}>
+                {item.description}
+              </Text>
+              <Text category={'h4'}>Review</Text>
+              <Reviews getReviews={getReviews} />
+            </ScrollView>
+          </View>
+          <View>
+            <Button onPress={() => select[1](undefined)} centered dark>
+              Close
+            </Button>
+          </View>
+        </>
       </Modal>
     </View>
   );
 }
+
+const Reviews = (props) => {
+  const [reviews, setreviews] = useState([]);
+  useEffect(() => {
+    props
+      .getReviews()
+      .then((e) => setreviews(e.data.data))
+      .catch(console.log);
+  }, []);
+  console.log(reviews);
+  return (
+    <>
+      {reviews.map((e) => (
+        <Card>
+          <Text status={'danger'} category={'c1'}>
+            Rating given was {e.rating}
+          </Text>
+          <Text category={'p1'}>{e.review}</Text>
+        </Card>
+      ))}
+    </>
+  );
+};

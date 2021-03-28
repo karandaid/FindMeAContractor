@@ -1,5 +1,6 @@
+import {Text} from '@ui-kitten/components';
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Jobs from '../../service/jobs';
 import User from '../../service/user';
@@ -47,41 +48,25 @@ export function APJobCard({...props}) {
             paddingHorizontal: 14,
           }}>
           <Text
+            status="success"
             style={{
-              fontFamily: 'Andale Mono',
-              color: 'green',
+              //
+              // color: 'green',
               textAlign: 'right',
             }}>
             {data.status}
           </Text>
-          <Text
-            style={{
-              fontSize: 17,
-              fontFamily: 'Andale Mono',
-            }}>
-            {job?.title}
-          </Text>
-          <Text
-            style={{
-              fontSize: 15,
-              color: 'gray',
-              fontFamily: 'Andale Mono',
-            }}
-            numberOfLines={2}>
+          <Text category="h6">{job?.title}</Text>
+          <Text category="p1" numberOfLines={2}>
             {data.title}
           </Text>
           {item.location && (
-            <Text
-              style={{
-                fontFamily: 'Andale Mono',
-              }}>
-              location : {item.location}
-            </Text>
+            <Text category="p2">Location is {item.location}</Text>
           )}
           <Text
             style={{
               marginTop: 10,
-              fontFamily: 'Andale Mono',
+
               color: 'red',
             }}>
             {(!job || job.status == 'closed') &&
@@ -108,8 +93,8 @@ export function APJobCard({...props}) {
             }}
           />
           <Text
+            category="p1"
             style={{
-              fontFamily: 'Andale Mono',
               flex: 1,
               marginLeft: 10,
             }}>

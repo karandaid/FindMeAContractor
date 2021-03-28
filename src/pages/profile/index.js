@@ -55,7 +55,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                   launchImageLibrary({}, async (e) => {
                     if (!e.didCancel) {
                       const img = [...images, e];
-                      if (e.length > 0) setimages([...img]);
+                      setimages([...img]);
                     }
                   })
                 }
@@ -87,7 +87,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+
                   marginBottom: 5,
                 }}>
                 Name
@@ -104,7 +104,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+
                   marginBottom: 5,
                 }}>
                 Phone
@@ -121,7 +121,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+
                   marginBottom: 5,
                 }}>
                 Address
@@ -138,7 +138,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+
                   marginBottom: 5,
                 }}>
                 Email

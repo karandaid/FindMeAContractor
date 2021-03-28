@@ -13,7 +13,7 @@ import {authenticated} from '../../models/app';
 export default connect(({}) => ({}), {authenticated})(function Home(props) {
   return (
     <View style={{flex: 1, backgroundColor: '#F6F6F8'}}>
-      <Text style={{fontFamily: 'Andale Mono'}}>We are live baby</Text>
+      <Text style={{}}>We are live baby</Text>
 
       <Input
         leftComponent={

@@ -143,7 +143,9 @@ export default {
         }
       } catch (error) {
         console.log({error});
-        yield put(stopLoading('layout'));
+        Alert.alert('An Error Ocurred', 'Something went wrong. ');
+
+        // yield put(stopLoading('layout'));
       }
       yield put(stopLoading('layout'));
     },

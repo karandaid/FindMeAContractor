@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Text,
   Image,
   View,
   FlatList,
@@ -17,6 +16,7 @@ import {connect} from 'dva';
 import {WebView} from 'react-native-webview';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {APIURL, PAYPALURL} from '../../utils';
+import {Text} from '@ui-kitten/components';
 
 export default connect(
   ({app}) => ({message: app.message.payment, user: app.user}),
@@ -29,7 +29,7 @@ export default connect(
   const [tab, settab] = useState(0);
   const [payment, setpayment] = useState();
   const [paymentM, setpaymentM] = useState(false);
-  const paymentMethod = ['Yes, Please.', 'No, Countinue'];
+  const paymentMethod = ['Yes, Please.', 'No, Continue'];
   let data = props.route.params.data;
   data = {
     ...data,
@@ -64,7 +64,10 @@ export default connect(
       } else {
         props.startmessage('payment', undefined);
 
-        props.navigation.replace('Success', {data: props.message});
+        props.navigation.replace('Success', {
+          data: props.message,
+          status: payment ? true : false,
+        });
       }
     }
   }, [props.message]);
@@ -123,11 +126,13 @@ export default connect(
       disableTabs>
       <Section style={{height: '100%'}}>
         <Text
-          style={{
-            fontSize: 26,
-            fontWeight: 'bold',
-            fontFamily: 'Andale Mono',
-          }}>
+          category={'h2'}
+          style={
+            {
+              // fontSize: 26,
+              // fontWeight: 'bold',
+            }
+          }>
           Highlight your Bid
         </Text>
         <View style={{height: 40}} />
@@ -146,7 +151,7 @@ export default connect(
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                   }}>
-                  <Text style={{fontSize: 17, fontFamily: 'Andale Mono'}}>
+                  <Text category={'p1'} style={{}}>
                     {item}
                   </Text>
                   <Image
@@ -162,7 +167,12 @@ export default connect(
                 {Select == 0 && index == 0 && (
                   <View style={{backgroundColor: 'white', marginBottom: 10}}>
                     <Section>
-                      <Button onPress={() => setpaymentM(true)} centered dark>
+                      <Button
+                        status={'warning'}
+                        onPress={() => setpaymentM(true)}
+                        centered
+                        // dark
+                      >
                         Pay Now with PayPal
                       </Button>
                     </Section>

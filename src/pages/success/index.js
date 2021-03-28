@@ -1,12 +1,14 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {Layout} from '../../components/layout';
 import {connect} from 'dva';
+import {Text} from '@ui-kitten/components';
 
 export default connect(
   ({app}) => ({message: app.message.payment}),
   {},
 )(function Success(props) {
+  const paid = props.route.params.status;
   return (
     <Layout
       btnEnabled
@@ -17,22 +19,23 @@ export default connect(
       disableTabs>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text
+          category={'h2'}
           style={{
             marginTop: 10,
-            fontFamily: 'Andale Mono',
-            fontSize: 30,
           }}>
           Success
         </Text>
         <Text
           style={{
             marginTop: 10,
-            fontFamily: 'Andale Mono',
+
             fontSize: 16,
             width: '60%',
             textAlign: 'center',
           }}>
-          Payment successfully made.Your bid is now featured.
+          {paid
+            ? ' Payment successfully made. Your bid is now featured.'
+            : 'Successfully Bided on the Job.'}
         </Text>
       </View>
     </Layout>
