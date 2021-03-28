@@ -91,7 +91,7 @@ export default function Bid(props) {
                 height: '90%',
                 padding: 10,
               }}
-              style={{padding: 10, fontSize: 16, fontFamily: 'Andale Mono'}}
+              style={{padding: 10, fontSize: 16}}
               onChangeText={(e) => setdescription(e)}
               maxLength={500}
               placeholder={'Add a appropriate description.'}

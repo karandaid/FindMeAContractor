@@ -112,7 +112,7 @@ export default connect(
                   color: 'blue',
                   fontSize: 20,
                   marginBottom: 10,
-                  fontFamily: 'Andale Mono',
+
                   textTransform: 'capitalize',
                   textAlign: e.item.uid == props.user._id ? 'left' : 'right',
                 }}>
@@ -123,7 +123,6 @@ export default connect(
                   color: 'rgba(0,0,0,0.6)',
                   fontSize: 18,
                   marginHorizontal: 10,
-                  fontFamily: 'Andale Mono',
 
                   textAlign: e.item.uid == props.user._id ? 'left' : 'right',
                 }}>

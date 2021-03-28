@@ -139,6 +139,7 @@ export default connect(
   }, [props.message]);
   return (
     <Layout
+      level={'2'}
       btnProps={{
         children: 'Post',
         onPress: () => {
@@ -169,7 +170,7 @@ export default connect(
               {
                 // fontSize: 26,
                 // fontWeight: 'bold',
-                // fontFamily: 'Andale Mono',
+                //
               }
             }>
             Post a Job
@@ -181,7 +182,7 @@ export default connect(
               <Text
                 style={{
                   color: '#707070',
-                  // fontFamily: 'Andale Mono',
+                  //
                   marginBottom: 5,
                 }}>
                 Title
@@ -197,7 +198,7 @@ export default connect(
               <Text
                 style={{
                   color: '#707070',
-                  // fontFamily: 'Andale Mono',
+                  //
                   marginBottom: 5,
                 }}>
                 Categories
@@ -216,14 +217,10 @@ export default connect(
                 }}
                 textStyle={{
                   fontSize: 18,
-                  // fontFamily: 'Andale Mono',
+                  //
                 }}
                 renderButtonText={(e) => <Text>{e}</Text>}
-                renderRowText={(e) => (
-                  <Text style={{fontSize: 16, fontFamily: 'Andale Mono'}}>
-                    {e}
-                  </Text>
-                )}
+                renderRowText={(e) => <Text style={{fontSize: 16}}>{e}</Text>}
                 options={props?.categories?.map((e) => e.name)}
               />
             </View>
@@ -235,7 +232,7 @@ export default connect(
               <Text
                 style={{
                   color: '#707070',
-                  // fontFamily: 'Andale Mono',
+                  //
                   marginVertical: 5,
                   marginTop: 7,
                 }}>
@@ -394,7 +391,7 @@ const ModalView = connect(
                 textAlign: 'center',
                 // fontSize: 26,
                 fontWeight: 'bold',
-                // fontFamily: 'Andale Mono',
+                //
                 marginTop: 20,
               }}>
               Additional Info
@@ -485,7 +482,7 @@ const ModalView = connect(
                 onPress={() => props.onRequestClose()}
                 style={{
                   textAlign: 'center',
-                  fontFamily: 'Andale Mono',
+
                   marginVertical: 10,
                 }}>
                 or Close

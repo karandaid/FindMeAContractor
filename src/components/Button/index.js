@@ -18,7 +18,7 @@ export function OutlineButton({onPress, centered, style, textProps, ...props}) {
         {...textProps}
         style={{
           flex: 1,
-          // fontFamily: 'Andale Mono',
+          //
           // fontSize: 16,
           textAlign: centered && 'center',
           color: dark ? 'white' : 'black',
@@ -44,7 +44,7 @@ export function OutlineButton({onPress, centered, style, textProps, ...props}) {
     //       {...textProps}
     //       style={{
     //         fontSize: 15,
-    //         fontFamily: 'Andale Mono',
+    //
     //         textAlign: centered && 'center',
     //         color: '#707070',
     //         ...textProps,
@@ -62,7 +62,7 @@ export function Button({onPress, style, textProps, centered, dark, ...props}) {
       accessoryLeft={props.leftIcon && props.leftIcon}
       accessoryRight={props.rightIcon && props.rightIcon}
       onPress={onPress}
-      // status={dark && 'warning'}
+      status={props.status}
       // style={{
       //   backgroundColor: dark ? 'black' : undefined,
       // }}
@@ -71,7 +71,7 @@ export function Button({onPress, style, textProps, centered, dark, ...props}) {
         {...textProps}
         style={{
           flex: 1,
-          // fontFamily: 'Andale Mono',
+          //
           // fontSize: 16,
           textAlign: centered && 'center',
           color: !dark ? 'white' : 'black',
@@ -98,7 +98,7 @@ export function Button({onPress, style, textProps, centered, dark, ...props}) {
     //       {...textProps}
     //       style={{
     //         flex: 1,
-    //         fontFamily: 'Andale Mono',
+    //
     //         fontSize: 16,
     //         textAlign: centered && 'center',
     //         color: dark ? 'white' : 'black',

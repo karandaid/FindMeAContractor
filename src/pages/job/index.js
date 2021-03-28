@@ -105,11 +105,11 @@ export default connect(
             backgroundColor: 'white',
             justifyContent: 'center',
             alignItems: 'center',
-            fontFamily: 'Andale Mono',
+            
           }}
-          textStyle={{fontFamily: 'Andale Mono'}}
+          textStyle={{}}
           renderRowText={(e) => (
-            <Text style={{fontSize: 16, fontFamily: 'Andale Mono'}}>{e}</Text>
+            <Text style={{fontSize: 16}}>{e}</Text>
           )}
           options={['categories', ...props?.categories?.map((e) => e.name)]}
         /> */}
@@ -174,7 +174,6 @@ export const EmptyListMessage = ({item}) => {
         padding: 10,
         fontSize: 18,
         textAlign: 'center',
-        fontFamily: 'Andale Mono',
       }}
       onPress={() => getItem(item)}>
       No Data Found

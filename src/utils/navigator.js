@@ -162,7 +162,7 @@ const HeaderConfig = ({title, back, logout}) => {
                   marginLeft: 20,
                   fontSize: 20,
                   fontWeight: 'bold',
-                  // fontFamily: 'Andale Mono',
+                  //
                   color: '#707070',
                 }}>
                 {back.title}
@@ -221,7 +221,7 @@ const HeaderConfig = ({title, back, logout}) => {
     headerTitleStyle: {
       fontSize: 23,
       fontWeight: 'bold',
-      // fontFamily: 'Andale Mono',
+      //
     },
   };
 };
@@ -261,5 +261,5 @@ export default withAuthenticator(
   },
   [],
   null,
-  // MyTheme,
+  MyTheme,
 );

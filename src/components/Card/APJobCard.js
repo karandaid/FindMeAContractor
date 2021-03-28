@@ -50,7 +50,7 @@ export function APJobCard({...props}) {
           <Text
             status="success"
             style={{
-              // fontFamily: 'Andale Mono',
+              //
               // color: 'green',
               textAlign: 'right',
             }}>
@@ -66,7 +66,7 @@ export function APJobCard({...props}) {
           <Text
             style={{
               marginTop: 10,
-              fontFamily: 'Andale Mono',
+
               color: 'red',
             }}>
             {(!job || job.status == 'closed') &&

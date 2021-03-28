@@ -11,7 +11,7 @@ export const Layout = connect(
 )((props) => {
   return (
     <Lay
-      level="2"
+      level={props.level || '2'}
       style={{
         flex: 1,
         // backgroundColor: '#F6F6F8',

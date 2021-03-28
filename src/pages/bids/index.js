@@ -84,7 +84,7 @@ export default connect(({app}) => ({jb: app.message.bids}), {awardABid})(
             style={{
               // fontSize: 26,
               fontWeight: 'bold',
-              // fontFamily: 'Andale Mono',
+              //
             }}>
             Bids
           </Text>
@@ -118,7 +118,7 @@ const EmptyListMessage = ({item}) => {
         padding: 10,
         fontSize: 18,
         textAlign: 'center',
-        // fontFamily: 'Andale Mono',
+        //
       }}
       onPress={() => getItem(item)}>
       No Data Found

@@ -30,7 +30,7 @@ export function JobCard(props) {
             <Text category="h5">{item.title}</Text>
             <Text
               style={{
-                // fontFamily: 'Andale Mono',
+                //
                 // fontSize: 14,
                 // color: '#6C6C6C',
                 paddingVertical: 2,
@@ -44,7 +44,7 @@ export function JobCard(props) {
             <Text status="success">status is {item.status}</Text>
             <Text
               // style={{
-              //   fontFamily: 'Andale Mono',
+              //
               //   fontSize: 12,
               // }}
               category="p1"
@@ -69,7 +69,7 @@ export function JobCard(props) {
                 style={{
                   // fontSize: 12,
                   marginLeft: 3,
-                  // fontFamily: 'Andale Mono',
+                  //
                 }}
                 category="p2">
                 {FORMATE_DATE(item.created_at)}
@@ -87,7 +87,7 @@ export function JobCard(props) {
                   // fontSize: 12,
                   marginLeft: 3,
 
-                  // fontFamily: 'Andale Mono',
+                  //
                 }}
                 category="p2">
                 {item.price[0]}

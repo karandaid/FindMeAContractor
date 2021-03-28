@@ -129,7 +129,10 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
       disableTabs>
       <ScrollView>
         <Image
-          style={{width: '100%', height: 200}}
+          style={{
+            width: '100%',
+            height: Dimensions.get('window').height * 0.35,
+          }}
           resizeMode={'cover'}
           source={
             select
@@ -240,7 +243,8 @@ export default connect(({app}) => ({user: app.user}))(function Post(props) {
                 ]);
                 // deleteAPost
               }}
-              dark
+              // dark
+              status={'warning'}
               centered>
               Perform an Action
             </Button>
@@ -284,7 +288,7 @@ const Mod = ({modal, setmodal, item}) => {
             <Text
               style={{
                 marginTop: 10,
-                fontFamily: 'Andale Mono',
+
                 fontSize: 20,
               }}>
               Review
@@ -292,7 +296,7 @@ const Mod = ({modal, setmodal, item}) => {
             <Text
               style={{
                 marginTop: 10,
-                fontFamily: 'Andale Mono',
+
                 fontSize: 16,
                 color: 'gray',
               }}>

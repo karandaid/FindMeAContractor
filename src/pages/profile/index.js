@@ -87,7 +87,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+
                   marginBottom: 5,
                 }}>
                 Name
@@ -104,7 +104,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+
                   marginBottom: 5,
                 }}>
                 Phone
@@ -121,7 +121,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+
                   marginBottom: 5,
                 }}>
                 Address
@@ -138,7 +138,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Text
                 style={{
                   color: '#707070',
-                  fontFamily: 'Andale Mono',
+
                   marginBottom: 5,
                 }}>
                 Email

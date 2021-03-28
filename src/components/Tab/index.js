@@ -61,7 +61,6 @@ export const Tab = connect(
     //   ))}
     // </View>
     <BottomNavigation
-      indicatorStyle={{borderColor: 'red'}}
       selectedIndex={selected}
       onSelect={(index) => {
         setselected(index);
@@ -107,7 +106,7 @@ export function TextTabs({containerStyle, onTabChange, tabsContent}) {
             borderBottomWidth: selected == i ? 1 : undefined,
             borderBottomColor: selected == i ? 'black' : undefined,
           }}>
-          <Text style={{fontFamily: 'Andale Mono'}}>{e}</Text>
+          <Text style={{}}>{e}</Text>
         </TouchableOpacity>
       ))}
     </View>
