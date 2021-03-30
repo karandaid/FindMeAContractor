@@ -1,6 +1,6 @@
 {
   "auth": {
-    "findmeacontractor7a750246": {
+    "findmeacontractorb82d2584": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -8,7 +8,7 @@
     }
   },
   "storage": {
-    "Findmeacontractor": {
+    "s3152b277c": {
       "service": "S3",
       "providerPlugin": "awscloudformation"
     }

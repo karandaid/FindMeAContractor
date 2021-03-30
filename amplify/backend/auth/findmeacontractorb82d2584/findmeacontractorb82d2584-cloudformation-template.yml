@@ -126,10 +126,6 @@ Parameters:
     Type: String
   
             
-  
-  usernameCaseSensitive:
-    Type: String
-            
         
   dependsOn:
     Type: CommaDelimitedList
@@ -148,7 +144,7 @@ Resources:
   # Created to allow the UserPool SMS Config to publish via the Simple Notification Service during MFA Process
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, 'findme7a750246_sns-role', !Join ['',[ 'sns', '7a750246', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, 'findmeb82d2584_sns-role', !Join ['',[ 'sns', 'b82d2584', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -160,10 +156,10 @@ Resources:
               - "sts:AssumeRole"
             Condition:
               StringEquals:
-                sts:ExternalId: findme7a750246_role_external_id
+                sts:ExternalId: findmeb82d2584_role_external_id
       Policies:
         -
-          PolicyName: findme7a750246-sns-policy
+          PolicyName: findmeb82d2584-sns-policy
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -181,9 +177,6 @@ Resources:
     Properties:
       UserPoolName: !If [ShouldNotCreateEnvResources, !Ref userPoolName, !Join ['',[!Ref userPoolName, '-', !Ref env]]]
       
-      
-      UsernameConfiguration:
-        CaseSensitive: false
       
       Schema:
         
@@ -215,7 +208,7 @@ Resources:
       SmsVerificationMessage: !Ref smsVerificationMessage
       SmsConfiguration:
         SnsCallerArn: !GetAtt SNSRole.Arn
-        ExternalId: findme7a750246_role_external_id
+        ExternalId: findmeb82d2584_role_external_id
     
   
   UserPoolClientWeb:
@@ -223,7 +216,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: findme7a750246_app_clientWeb
+      ClientName: findmeb82d2584_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -233,7 +226,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: findme7a750246_app_client
+      ClientName: findmeb82d2584_app_client
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -244,7 +237,7 @@ Resources:
   # Created to execute Lambda which gets userpool app client config values
     Type: 'AWS::IAM::Role'
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', '7a750246', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', 'b82d2584', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -298,7 +291,7 @@ Resources:
   # Marked as depending on UserPoolClientRole for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: findme7a750246_userpoolclient_lambda_iam_policy
+      PolicyName: findmeb82d2584_userpoolclient_lambda_iam_policy
       Roles:
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -315,7 +308,7 @@ Resources:
   # Marked as depending on UserPoolClientLambdaPolicy for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: findme7a750246_userpoolclient_lambda_log_policy
+      PolicyName: findmeb82d2584_userpoolclient_lambda_log_policy
       Roles:
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -355,7 +348,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties:
-      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'findmeacontractor7a750246_identitypool_7a750246', !Join ['',['findmeacontractor7a750246_identitypool_7a750246', '__', !Ref env]]]
+      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'findmeacontractorb82d2584_identitypool_b82d2584', !Join ['',['findmeacontractorb82d2584_identitypool_b82d2584', '__', !Ref env]]]
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient

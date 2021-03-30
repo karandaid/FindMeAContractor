@@ -1,53 +1,53 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-findmeacontractor-dev-10736-authRole",
-      "UnauthRoleArn": "arn:aws:iam::915470643409:role/amplify-findmeacontractor-dev-10736-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::915470643409:role/amplify-findmeacontractor-dev-10736-authRole",
+      "AuthRoleName": "amplify-findmeacontractor-dev-21659-authRole",
+      "UnauthRoleArn": "arn:aws:iam::915470643409:role/amplify-findmeacontractor-dev-21659-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::915470643409:role/amplify-findmeacontractor-dev-21659-authRole",
       "Region": "eu-west-2",
-      "DeploymentBucketName": "amplify-findmeacontractor-dev-10736-deployment",
-      "UnauthRoleName": "amplify-findmeacontractor-dev-10736-unauthRole",
-      "StackName": "amplify-findmeacontractor-dev-10736",
-      "StackId": "arn:aws:cloudformation:eu-west-2:915470643409:stack/amplify-findmeacontractor-dev-10736/9ad753d0-7eb7-11eb-bc9b-06deb714bcea",
-      "AmplifyAppId": "d2ivyaed2n1ego"
+      "DeploymentBucketName": "amplify-findmeacontractor-dev-21659-deployment",
+      "UnauthRoleName": "amplify-findmeacontractor-dev-21659-unauthRole",
+      "StackName": "amplify-findmeacontractor-dev-21659",
+      "StackId": "arn:aws:cloudformation:eu-west-2:915470643409:stack/amplify-findmeacontractor-dev-21659/1c19ee20-90d4-11eb-b3b7-024fe784c338",
+      "AmplifyAppId": "d3q7ipy2oyqg1s"
     }
   },
   "auth": {
-    "findmeacontractor7a750246": {
+    "findmeacontractorb82d2584": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-findmeacontractor-dev-10736-deployment/amplify-cfn-templates/auth/findmeacontractor7a750246-cloudformation-template.yml",
-        "logicalId": "authfindmeacontractor7a750246"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-findmeacontractor-dev-21659-deployment/amplify-cfn-templates/auth/findmeacontractorb82d2584-cloudformation-template.yml",
+        "logicalId": "authfindmeacontractorb82d2584"
       },
-      "lastPushTimeStamp": "2021-03-09T14:24:49.656Z",
+      "lastPushTimeStamp": "2021-03-29T21:22:29.973Z",
       "output": {
-        "UserPoolId": "eu-west-2_6LiEPVl6a",
-        "AppClientIDWeb": "7n7hitrp7bd2anc3mu2ijo1b87",
-        "AppClientID": "1jaa0cohb8ua8ied7imvlnct0s",
-        "IdentityPoolId": "eu-west-2:98dbacc8-54fd-4777-90fd-1c8c92d835d6",
-        "IdentityPoolName": "findmeacontractor7a750246_identitypool_7a750246__dev",
-        "UserPoolName": "findmeacontractor7a750246_userpool_7a750246"
+        "UserPoolId": "eu-west-2_LKqVKFZDD",
+        "AppClientIDWeb": "shumtme6f68bv4ia097122t8m",
+        "AppClientID": "6oakqcmc3ks1pjc1htdn8f729v",
+        "IdentityPoolId": "eu-west-2:8191ef82-49f4-44a5-a2d0-d88efe5bdf77",
+        "IdentityPoolName": "findmeacontractorb82d2584_identitypool_b82d2584__dev",
+        "UserPoolName": "findmeacontractorb82d2584_userpool_b82d2584"
       },
-      "lastPushDirHash": "5vdQ50UoeYJHmv2I7WbbMBAPNfo="
+      "lastPushDirHash": "Y7tLdXjg9IjiVWBR2LNPWJz6itI="
     }
   },
   "storage": {
-    "Findmeacontractor": {
+    "s3152b277c": {
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-findmeacontractor-dev-10736-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
-        "logicalId": "storageFindmeacontractor"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-findmeacontractor-dev-21659-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storages3152b277c"
       },
-      "lastPushTimeStamp": "2021-03-09T14:24:49.665Z",
+      "lastPushTimeStamp": "2021-03-29T21:22:29.973Z",
       "output": {
-        "BucketName": "findmeacontractor5f0bcc14d932483aabc269104b955010736-dev",
+        "BucketName": "findmeacontractor21659-dev",
         "Region": "eu-west-2"
       },
-      "lastPushDirHash": "ArUBoz7avCqqIRnygcpu9Mtp5m4="
+      "lastPushDirHash": "CkInUyA4N+WBwkmJ1OYr2/FLQgM="
     }
   }
 }

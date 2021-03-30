@@ -176,7 +176,7 @@ export const EmptyListMessage = ({item}) => {
         textAlign: 'center',
       }}
       onPress={() => getItem(item)}>
-      No Data Found
+      No data found.
     </Text>
   );
 };
