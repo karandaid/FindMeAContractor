@@ -6,12 +6,12 @@ import Geolocation, {
 
 /*** CONSTANTS and data sources. */
 /**********************************************************/
-const url = 'https://elfnovrye5.execute-api.eu-west-2.amazonaws.com/dev';
+const url = 'https://6mj7ylmi95.execute-api.eu-west-2.amazonaws.com/dev';
 // const url = 'http://localhost:8080';
 export const APIURL = `${url}/api/`;
 export const PAYPALURL = `${url}/paypal`;
 export const S3BUCKETURL =
-  'https://findmeacontractor5f0bcc14d932483aabc269104b955010736-dev.s3.eu-west-2.amazonaws.com/public/';
+  'https://findmeacontractor21659-dev.s3.eu-west-2.amazonaws.com/public/';
 export const GEOCODEAPIKEY = 'AIzaSyDFu9V23Y6Y8gfARAQYrENTY4koE49yeIc';
 /**********************************************************/
 

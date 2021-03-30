@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "findmeacontractor7a750246_identitypool_7a750246",
+    "identityPoolName": "findmeacontractorb82d2584_identitypool_b82d2584",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "findme7a750246",
-    "userPoolName": "findmeacontractor7a750246_userpool_7a750246",
+    "resourceNameTruncated": "findmeb82d2584",
+    "userPoolName": "findmeacontractorb82d2584_userpool_b82d2584",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "findme7a750246_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "findmeb82d2584_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "7a750246",
-    "resourceName": "findmeacontractor7a750246",
+    "sharedId": "b82d2584",
+    "resourceName": "findmeacontractorb82d2584",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -51,6 +51,5 @@
     ],
     "userPoolGroupList": [],
     "serviceName": "Cognito",
-    "usernameCaseSensitive": false,
     "dependsOn": []
 }

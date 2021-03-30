@@ -148,6 +148,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                   placeholder: 'You name',
                   value: props.user.email,
                   editable: false,
+                  disabled: true,
                 }}
                 inputStyle={{color: 'gray'}}
               />
