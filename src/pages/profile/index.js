@@ -39,7 +39,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                 source={{
                   uri:
                     images.length == 0
-                      ? S3BUCKETURL + props.user.image
+                      ? S3BUCKETURL + props?.user?.image
                       : images[0]?.uri,
                 }}
                 style={{
@@ -95,7 +95,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Input
                 inputProps={{
                   placeholder: 'You name',
-                  value: name != undefined ? name : props.user.name,
+                  value: name != undefined ? name : props?.user?.name,
                   onChangeText: setname,
                 }}
               />
@@ -112,7 +112,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Input
                 inputProps={{
                   placeholder: 'Your Phone',
-                  value: phone != undefined ? phone : props.user.phone,
+                  value: phone != undefined ? phone : props?.user?.phone,
                   onChangeText: setphone,
                 }}
               />
@@ -129,7 +129,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Input
                 inputProps={{
                   placeholder: 'You address',
-                  value: address != undefined ? address : props.user.address,
+                  value: address != undefined ? address : props?.user?.address,
                   onChangeText: setaddress,
                 }}
               />
@@ -146,7 +146,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
               <Input
                 inputProps={{
                   placeholder: 'You name',
-                  value: props.user.email,
+                  value: props?.user?.email,
                   editable: false,
                   disabled: true,
                 }}
@@ -183,7 +183,7 @@ export default connect(({app}) => ({user: app.user}), {updateUser})(
                           };
                           if (images.length > 0) params['image'] = fileName;
 
-                          User.updateUsers(props.user._id, params)
+                          User.updateUsers(props?.user?._id, params)
                             .then((e) => {
                               setloading(false);
 

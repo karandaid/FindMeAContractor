@@ -136,7 +136,7 @@ const EmptyListMessage = ({item}) => {
         textAlign: 'center',
       }}
       onPress={() => getItem(item)}>
-      No data found.
+      No Data Found
     </Text>
   );
 };
